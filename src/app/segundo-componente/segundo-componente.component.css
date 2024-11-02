@@ -1,0 +1,16 @@
+main {
+    padding: 20px; /* Espaçamento interno do conteúdo */
+    background-color: #f1f1f1; /* Fundo claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 0; /* Remover margens */
+}
+
+footer {
+    background-color: #333; /* Fundo escuro */
+    color: white;
+    text-align: center;
+    padding: 10px 0; /* Espaçamento vertical */
+    width: 100%; /* Garantir que o footer ocupe toda a largura */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil no topo do footer */
+}

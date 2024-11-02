@@ -1,0 +1,15 @@
+header {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    text-align: center;
+    padding: 15px 0; /* Espaçamento vertical */
+    margin: 0; /* Remover margens */
+}
+
+main {
+    padding: 20px; /* Espaçamento interno do conteúdo */
+    background-color: #f9f9f9; /* Fundo claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 0; /* Remover margens */
+}
