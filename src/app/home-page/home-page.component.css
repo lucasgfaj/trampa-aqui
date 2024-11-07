@@ -1,6 +1,88 @@
+.div-img {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 93.75rem; /* Ajuste conforme necessário */
+}
+
 .div-img img {
-  width: 100%; /* Ajuste o valor conforme necessário */
-  max-width: 1400px; /* Define um tamanho máximo opcional */
-  height: auto; /* Mantém a proporção da imagem */
-  display: block; /* Centraliza a imagem */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  color: white;
+  text-shadow: .0625rem .0625rem .3125rem rgba(0, 0, 0, 0.7); /* Para melhorar a visibilidade do texto */
+  width: 80%; /* Ajuste conforme necessário */
+}
+
+.overlay-text h1 {
+  font-size: 2rem;
+  margin-bottom: .625rem;
+}
+
+.overlay-text p {
+  font-size: 1rem;
+  margin-top: .3125rem;
+}
+
+.btn-vagas {
+  margin-top: .9375rem;
+  padding: .625rem 1.25rem;
+  background-color: #007bff; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: .3125rem;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-vagas:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+.vaga-container {
+  text-align: center;
+  padding: 12px;
+}
+
+.vaga-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vaga-card {
+  width: 250px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.vaga-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.ver-vagas {
+  margin-top: 20px;
 }
