@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - main  # Altere para a branch que deseja monitorar
+      - main  # Substitua se você usa outra branch
 
 jobs:
   build-deploy:
@@ -21,11 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli  # Instala o Angular CLI globalmente
+
       - name: Build Angular app
         run: ng build --output-path docs --base-href /trampa-aqui/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # Branch de deploy no GitHub Pages
+          branch: gh-pages  # Esta deve ser a branch de deploy
           folder: docs      # Pasta onde o build do Angular foi salvo
