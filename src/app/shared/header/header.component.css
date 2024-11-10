@@ -7,8 +7,8 @@
 }
 
 .logo {
-  height: 42px;
-  margin-right: 16px;
+  height: 2.625rem;
+  margin-right: 1rem;
   transition: border 0.4s ease, border-radius 0.4s ease;
   border: 2px solid transparent;
   border-radius: 0px;
@@ -73,9 +73,13 @@ nav a {
     display: none; /* Esconde a navegação em dispositivos móveis */
   }
 
+  .sidenav-container {
+    height: 100vh;
+    width: 100vw;
+  }
+
   .sidenav {
-    width: 250px; /* Define o tamanho do sidenav */
+    width: 15.625rem; /* Define o tamanho do sidenav */
   }
 }
-
 
