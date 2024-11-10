@@ -1,47 +1,81 @@
 .toolbar-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  justify-content: space-between;  /* Adiciona um espaçamento entre os itens (ícone de hambúrguer e logo) */
+}
+
+.logo {
+  height: 42px;
+  margin-right: 16px;
+  transition: border 0.4s ease, border-radius 0.4s ease;
+  border: 2px solid transparent;
+  border-radius: 0px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+nav {
+  padding: 8px 0px 8px 0px;
+}
+
+nav a {
+  color: #34495E;
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.vagas {
+  color: #32B796 !important;
+}
+
+.cadastrar {
+  padding: 8px;
+  color: white !important;
+  border: 1px solid #2B3C4E;
+  background-color: #34495E;
+  border-radius: 0px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+}
+
+.cadastrar:hover {
+  background-color: white !important;
+  color: black !important;
+  border-radius: 12px;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toolbar-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Menu no lado esquerdo, logo no centro e um espaçador à direita */
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
   }
-  
+
+  .menu-button {
+    display: block;
+    grid-column: 1; /* Posiciona o botão de menu na primeira coluna */
+  }
+
   .logo {
-    height: 48px;
-    margin-right: 16px;
-  }
-  
-  .spacer {
-    flex: 1;
+    display: block;
+    grid-column: 2; /* Posiciona o logo na segunda coluna (centro) */
+    justify-self: center; /* Centraliza o logo dentro da coluna */
   }
 
-  nav {
-    padding: 8px 0px 8px 0px;
-  }
-  
-  nav a {
-    color: #34495E;
-    font-weight: bold;
-    margin-right: 16px;
+  .desktop-nav {
+    display: none; /* Esconde a navegação em dispositivos móveis */
   }
 
-  nav a:hover {
-    font-size: 18px;
+  .sidenav {
+    width: 250px; /* Define o tamanho do sidenav */
   }
-  
-  .vagas {
-    color: #32B796 !important;
-  }
+}
 
-  .cadastrar {
-    padding: 8px;
-    color: white !important; 
-    border: 1px solid #2B3C4E;
-    background-color: #34495E;
 
-  }
-
-  .cadastrar:hover {
-    background-color: white !important;
-    color: black !important;
-    font-size: 16px !important;
-  }

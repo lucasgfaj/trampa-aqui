@@ -1,4 +1,5 @@
 .footer {
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,20 +14,26 @@
     text-align: center;
     color: #ffffff;
   }
-  
-  .social-icons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 0.5rem; /* Espaço entre ícones e texto */
-  }
-  
-  .social-icons mat-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: #ffffff;
-  }
-  
+
   .footer-text {
     font-size: 14px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 16px; /* Espaço entre os ícones */
+  }
+  
+  .iconify {
+    color: white;
+  }
+
+  .iconify:hover {
+    color: black;
+  }
+
+  @media (max-width: 768px) {
+    .footer-text {
+      font-size: 12px;
+    }
   }
