@@ -1,5 +1,6 @@
-<mat-sidenav-container class="sidenav-container">
-  <!-- Sidenav para dispositivos móveis -->
+<!-- Container SideNav-->
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+  <!-- Sidenav -->
   <mat-sidenav #sidenav mode="over" class="sidenav">
     <mat-nav-list>
       <a mat-list-item routerLink="/home-page">HOME</a>
@@ -10,23 +11,22 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-toolbar color="primary">
-    <div class="toolbar-content">
-      <!-- Ícone de menu hambúrguer para abrir o sidenav -->
-      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-        <span class="iconify" data-icon="mdi:menu" data-inline="false"></span>
-      </button>
+<mat-toolbar color="primary">
+  <div class="toolbar-content">
+    <!-- Ícone de menu hambúrguer para abrir o sidenav -->
+    <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+      <span class="iconify" data-icon="mdi:menu" data-inline="false"></span>
+    </button>
+    
+    <!-- Logo da aplicação -->
+    <a routerLink="/home-page"><img class="logo" src="https://res.cloudinary.com/duposs86e/image/upload/v1730934427/trampa-aqui-logo_za3yfx.png" alt="Trampa Aqui Logo"></a>
 
-      <!-- Logo da aplicação -->
-      <a routerLink="/home-page"><img class="logo" src="https://res.cloudinary.com/duposs86e/image/upload/v1730934427/trampa-aqui-logo_za3yfx.png" alt="Trampa Aqui Logo"></a>
-
-      <!-- Navegação -->
-      <nav class="desktop-nav">
-        <a mat-button class="vagas" routerLink="/ver-vagas">VER VAGAS</a>
-        <a mat-button routerLink="/sou-empresa">SOU EMPRESA</a>
-        <a mat-button routerLink="/login">LOGIN</a>
-        <a mat-button class="cadastrar" routerLink="/cadastrar-se">CADASTRAR-SE</a>
-      </nav>
-    </div>
-  </mat-toolbar>
-</mat-sidenav-container>
+    <!-- Navegação -->
+    <nav class="desktop-nav">
+      <a mat-button class="vagas" routerLink="/ver-vagas">VER VAGAS</a>
+      <a mat-button routerLink="/sou-empresa">SOU EMPRESA</a>
+      <a mat-button routerLink="/login">LOGIN</a>
+      <a mat-button class="cadastrar" routerLink="/cadastrar-se">CADASTRAR-SE</a>
+    </nav>
+  </div>
+</mat-toolbar>

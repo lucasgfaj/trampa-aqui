@@ -1,0 +1,62 @@
+.div-img {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 100%; /* Ajuste conforme necessário */
+  }
+  
+  .div-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 30%;
+    left: 26%;
+    color: white;
+    text-shadow: .0625rem .0625rem .3125rem rgba(0, 0, 0, 0.7); /* Para melhorar a visibilidade do texto */
+    width: 80%; /* Ajuste conforme necessário */
+  }
+
+  .p-acesso {
+    font-size: .875rem !important;
+    margin-top: 2% !important; 
+    font-style: italic;
+  }
+  
+  .overlay-text h1 {
+    font-size: 3rem;
+    margin-bottom: .625rem;
+  }
+  
+  .overlay-text p {
+    font-size: 1rem;
+    margin-top: .3125rem;
+  }
+  
+  .btn-vagas {
+    margin-top: .9375rem;
+    padding: .9375rem 1.25rem;
+    background-color: #32B796; 
+    color: white;
+    border: none;
+    border-radius: .3125rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .btn-vagas:hover {
+    background-color:  white; 
+}
+ 
+/* Responsividade */
+   @media (max-width: 768px) {
+
+   }
+   
+   @media (max-width: 480px) {
+   }
