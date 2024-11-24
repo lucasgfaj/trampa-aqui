@@ -11,7 +11,7 @@ import { DashboardCandidatoComponent } from './pages/dashboard-candidato/dashboa
 import { MinhasVagasComponent } from './pages/minhas-vagas/minhas-vagas.component';
 
 export const routes: Route[] = [
-  { path: '', redirectTo: '/login-candidato', pathMatch: 'full' }, // Redireciona para login-candidato por padrão
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' }, // Redireciona para login-candidato por padrão
   { path: 'home-page', component: HomePageComponent },
   { path: 'ver-vagas', component: VerVagasComponent },
   { path: 'sou-empresa', component: SouEmpresaComponent },

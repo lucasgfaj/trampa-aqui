@@ -1,0 +1,142 @@
+.div-img {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 100%; /* Ajuste conforme necessário */
+}
+
+.div-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 30%; /* Ajuste para centralizar verticalmente */
+  left: 40%; /* Mantém o texto centralizado horizontalmente */
+  transform: translate(-26%, -30%); /* Garante alinhamento correto em telas menores */
+  color: white;
+  text-shadow: 0.0625rem 0.0625rem 0.3125rem rgba(0, 0, 0, 0.7); /* Para melhorar a visibilidade do texto */
+  width: 80%; /* Ajuste conforme necessário */
+}
+
+.p-acesso {
+  font-size: 0.875rem !important;
+  margin-top: 2% !important; 
+  font-style: italic;
+}
+
+.overlay-text h1 {
+  font-size: 3rem;
+  margin-bottom: 0.625rem;
+}
+
+.overlay-text p {
+  font-size: 1rem;
+  margin-top: 0.3125rem;
+}
+
+.trocaPalavra {
+  color: #32B796;
+}
+
+.btn-vagas {
+  margin-top: 0.9375rem;
+  padding: 0.9375rem 1.25rem;
+  background-color: #32B796; 
+  color: white;
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-vagas:hover {
+  background-color: white; 
+  color: #32B796;
+  border: .125rem solid #32B796;
+}
+
+
+
+@media (max-width: 1084px) {
+  .overlay-text {
+    left: 30%;
+  }
+}
+
+/* Responsividade para tablets e dispositivos médios */
+@media (max-width: 768px) {
+
+  .div-img img {
+    height: 21.875rem;
+  }
+
+  .overlay-text {
+    top: 20%; /* Ajusta a posição do texto */
+    left: 20%; /* Ajusta o alinhamento */
+    width: 90%; /* Texto ocupa mais espaço horizontal */
+    transform: translate(-20%, -20%);
+  }
+
+  .overlay-text h1 {
+    font-size: 2.5rem; /* Reduz o tamanho do título */
+    line-height: 1.1;
+  }
+
+  .overlay-text p {
+    font-size: 0.9rem; /* Reduz o tamanho do parágrafo */
+  }
+
+  .btn-vagas {
+    font-size: 1.25rem; /* Botão menor */
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 652px){
+
+  .div-img img {
+    height: 400px;
+    object-fit: cover;
+  }
+  .overlay-text {
+    top: 20%; /* Ajusta a posição do texto */
+  }
+  
+  .overlay-text h1 {
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem; /* Reduz o tamanho do título */
+  }
+
+  .overlay-text p {
+    font-size: 0.9rem; /* Reduz o tamanho do parágrafo */
+  }
+
+  .btn-vagas {
+    font-size: 1.25rem; /* Botão menor */
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 469px){
+  .overlay-text h1 {
+    font-size: 4vh;
+    line-height: 1.4;
+
+  }
+}
+
+@media (max-width: 368px){
+  .overlay-text h1 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+}
