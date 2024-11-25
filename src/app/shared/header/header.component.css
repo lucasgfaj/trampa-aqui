@@ -32,7 +32,7 @@ nav a {
   color: #32B796 !important;
 }
 
-.cadastrar {
+.submenu {
   padding: 8px;
   color: white !important;
   border: 1px solid #2B3C4E;
@@ -41,7 +41,7 @@ nav a {
   transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
 }
 
-.cadastrar:hover {
+.submenu:hover {
   background-color: white !important;
   color: black !important;
   border-radius: 12px;
@@ -82,3 +82,6 @@ nav a {
   }
 }
 
+.mat-menu-item {
+  padding: 10px 20px;
+}

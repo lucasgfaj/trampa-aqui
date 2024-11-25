@@ -6,27 +6,52 @@
       <a mat-list-item routerLink="/home-page">HOME</a>
       <a mat-list-item routerLink="/ver-vagas">VER VAGAS</a>
       <a mat-list-item routerLink="/sou-empresa">SOU EMPRESA</a>
-      <a mat-list-item routerLink="/login">LOGIN</a>
-      <a mat-list-item routerLink="/cadastrar-se">CADASTRAR-SE</a>
+      <a mat-list-item [matMenuTriggerFor]="menuLogin">LOGIN</a>
+      <mat-menu #menuLogin="matMenu">
+        <button mat-menu-item routerLink="/login-candidato">USUÁRIO</button>
+        <button mat-menu-item routerLink="/login-empresa">EMPRESA</button>
+      </mat-menu>
+      <a mat-list-item [matMenuTriggerFor]="menuCadastro">CADASTRAR-SE</a>
+      <mat-menu #menuCadastro="matMenu">
+        <button mat-menu-item routerLink="/cadastro-candidato">USUÁRIO</button>
+        <button mat-menu-item routerLink="/cadastro-empresa">EMPRESA</button>
+      </mat-menu>
     </mat-nav-list>
   </mat-sidenav>
 
-<mat-toolbar color="primary">
-  <div class="toolbar-content">
-    <!-- Ícone de menu hambúrguer para abrir o sidenav -->
-    <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-      <span class="iconify" data-icon="mdi:menu" data-inline="false"></span>
-    </button>
-    
-    <!-- Logo da aplicação -->
-    <a routerLink="/home-page"><img class="logo" src="https://res.cloudinary.com/duposs86e/image/upload/v1730934427/trampa-aqui-logo_za3yfx.png" alt="Trampa Aqui Logo"></a>
+  <!-- Toolbar -->
+  <mat-toolbar color="primary">
+    <div class="toolbar-content">
+      <!-- Ícone de menu hambúrguer para abrir o sidenav -->
+      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+        <span class="iconify" data-icon="mdi:menu" data-inline="false"></span>
+      </button>
 
-    <!-- Navegação -->
-    <nav class="desktop-nav">
-      <a mat-button class="vagas" routerLink="/ver-vagas">VER VAGAS</a>
-      <a mat-button routerLink="/sou-empresa">SOU EMPRESA</a>
-      <a mat-button routerLink="/login">LOGIN</a>
-      <a mat-button class="cadastrar" routerLink="/cadastrar-se">CADASTRAR-SE</a>
-    </nav>
-  </div>
-</mat-toolbar>
+      <!-- Logo da aplicação -->
+      <a routerLink="/home-page">
+        <img class="logo" src="https://res.cloudinary.com/duposs86e/image/upload/v1730934427/trampa-aqui-logo_za3yfx.png" alt="Trampa Aqui Logo">
+      </a>
+
+      <!-- Navegação -->
+      <nav class="desktop-nav">
+        <a mat-button routerLink="/home-page">HOME</a>
+        <a mat-button class="vagas" routerLink="/ver-vagas">VER VAGAS</a>
+        <a mat-button routerLink="/sou-empresa">SOU EMPRESA</a>
+        
+        <!-- Menu de Login -->
+        <a mat-button [matMenuTriggerFor]="menuLogin">LOGIN</a>
+        <mat-menu #menuLogin="matMenu">
+          <button mat-menu-item routerLink="/login-candidato">USUÁRIO</button>
+          <button mat-menu-item routerLink="/login-empresa">EMPRESA</button>
+        </mat-menu>
+
+        <!-- Menu de Cadastro -->
+        <a mat-button [matMenuTriggerFor]="menuCadastro" class="submenu">CADASTRAR-SE</a>
+        <mat-menu #menuCadastro="matMenu">
+          <button mat-menu-item routerLink="/cadastro-candidato">USUÁRIO</button>
+          <button mat-menu-item routerLink="/cadastro-empresa">EMPRESA</button>
+        </mat-menu>
+      </nav>
+    </div>
+  </mat-toolbar>
+</mat-sidenav-container>
