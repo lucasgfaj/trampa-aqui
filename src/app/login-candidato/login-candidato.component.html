@@ -1,5 +1,6 @@
 <div class="login-container">
     <h2>Login como candidato</h2>
+    <p> Feito por: {{nome}} </p>
     <mat-tab-group>
       <mat-tab label="Log In">
         <form class="login-form">
@@ -20,7 +21,7 @@
             <a href="#">Esqueceu sua senha?</a>
           </div>
   
-          <button mat-raised-button color="primary" class="full-width">
+          <button mat-raised-button color="primary" class="full-width" (click)="onButtonClick()">
             Login
           </button>
         </form>

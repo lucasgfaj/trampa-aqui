@@ -19,6 +19,12 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './login-candidato.component.html',
   styleUrl: './login-candidato.component.css'
 })
-export class LoginCandidatoComponent {
 
+export class LoginCandidatoComponent {
+  nome: string = 'João Victor'
+  onButtonClick() {
+    alert('Login Efetuado com sucesso!');
+  }
 }
+
+
