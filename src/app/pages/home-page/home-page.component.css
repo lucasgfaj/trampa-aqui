@@ -16,7 +16,10 @@
   position: absolute;
   top: 30%; /* Ajuste para centralizar verticalmente */
   left: 40%; /* Mantém o texto centralizado horizontalmente */
-  transform: translate(-26%, -30%); /* Garante alinhamento correto em telas menores */
+  transform: translate(
+    -26%,
+    -30%
+  ); /* Garante alinhamento correto em telas menores */
   color: white;
   text-shadow: 0.0625rem 0.0625rem 0.3125rem rgba(0, 0, 0, 0.7); /* Para melhorar a visibilidade do texto */
   width: 80%; /* Ajuste conforme necessário */
@@ -39,13 +42,13 @@
 }
 
 .trocaPalavra {
-  color: #32B796;
+  color: #32b796;
 }
 
 .btn-vagas {
   margin-top: 0.9375rem;
   padding: 0.9375rem 1.25rem;
-  background-color: #32B796;
+  background-color: #32b796;
   color: white;
   border: none;
   border-radius: 0.3125rem;
@@ -58,14 +61,44 @@
 
 .btn-vagas:hover {
   background-color: white;
-  color: #32B796;
+  color: #32b796;
 }
 
 .icon {
   color: #2c3e50;
+  line-height: 1.8rem ;
+  font-size: 1.5rem; /* Aumentando o tamanho do ícone */
 }
 
+.section-quality {
+  display: flex;
+  flex-direction: row; /* Alinha os cards em linha */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  align-items: flex-start; /* Alinha os cards no topo */
+  padding: 1.25rem 0; /* Ajuste o padding conforme necessário */
+  gap: 2rem; /* Ajuste o espaço entre os cards */
+}
 
+.section-quality > div {
+  flex: 1; /* Permitir que os cards se ajustem proporcionalmente */
+  max-width: 300px; /* Limita a largura máxima dos cards, ajuste conforme necessário */
+  padding: 1.5rem;
+  margin: 0; /* Remover margens para evitar espaçamento indesejado */
+}
+
+.section-quality > div > h5 {
+  
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamanho do título */
+}
+
+.section-quality > div > p {
+  font-size: 14px; /* Tamanho do texto */
+}
+.section-quality > div > p > span {
+  font-weight: bold;
+}
 
 @media (max-width: 1084px) {
   .overlay-text {
@@ -75,7 +108,6 @@
 
 /* Responsividade para tablets e dispositivos médios */
 @media (max-width: 768px) {
-
   .div-img img {
     height: 21.875rem;
   }
@@ -102,8 +134,7 @@
   }
 }
 
-@media (max-width: 652px){
-
+@media (max-width: 652px) {
   .div-img img {
     height: 400px;
     object-fit: cover;
@@ -127,17 +158,45 @@
     font-size: 1.25rem; /* Botão menor */
     padding: 0.75rem 1rem;
   }
+
+  .section-quality {
+    border: 1px solid black;
+    flex-direction: column; /* Alinha os cards verticalmente */
+    padding: 1rem ; /* Reduz o espaçamento interno */
+    gap: 1.5rem; /* Espaçamento entre os cards */
+  }
+
+  .section-quality > div {
+    width: 100%;
+    margin: 0 auto; /* Centraliza os cards */
+    padding: 0rem; /* Reduz o espaçamento interno */
+    max-width: 100%; /* Os cards ocupam toda a largura */
+  }
+
+  .section-quality > div > h5 {
+    font-size: 1.25rem; /* Reduz o tamanho do título */
+    gap: .375rem; /* Ajusta o espaçamento entre o ícone e o texto */
+  }
+
+  .section-quality > div > p {
+    font-size: 0.9rem; /* Reduz o tamanho do texto */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+  }
+
+  .section-quality > div > p > span {
+    font-weight: bold;
+  }
+
 }
 
-@media (max-width: 469px){
+@media (max-width: 469px) {
   .overlay-text h1 {
     font-size: 4vh;
     line-height: 1.4;
-
   }
 }
 
-@media (max-width: 368px){
+@media (max-width: 368px) {
   .overlay-text h1 {
     font-size: 1.5rem;
     line-height: 1.5;
