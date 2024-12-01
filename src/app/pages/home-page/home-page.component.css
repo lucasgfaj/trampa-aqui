@@ -94,11 +94,89 @@
 }
 
 .section-quality > div > p {
-  font-size: 14px; /* Tamanho do texto */
+  font-size: .875rem; /* Tamanho do texto */
 }
 .section-quality > div > p > span {
   font-weight: bold;
 }
+
+/*Cards*/
+.vaga-container {
+  background-color: #f8f7f7;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.vaga-container > div > h3 {
+  margin-top: 3.125rem;
+}
+
+.vaga-grid {
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.2fr;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.vaga-card {
+  border-radius: 0px;
+  margin-top: 3.125rem;
+  width: 100%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.vaga-avatar {
+  display: flex;
+  justify-content: center;
+  margin-right: 1.5625rem;
+  padding: .625rem;
+  border-bottom: .0625rem solid #e7e7e7;
+
+}
+
+.img-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  
+}
+
+.mat-header {
+  display: grid;
+  margin-bottom: .625rem;
+  color: #2c3e50;
+  font-weight: 400;
+}
+
+.mat-content {
+  font-size: .875rem;
+  color: #2c3e50;
+}
+
+.mat-content p {
+  display: inline-block;
+  margin-right: 10px; /* Espaçamento entre os parágrafos */
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+  margin-top: 0.625rem;
+}
+
+.tag {
+  background-color: #e7e5e5;
+  border-radius: 0.75rem;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.8rem;
+}
+
+.btn-vagas {
+  margin-top: 3.75rem;
+}
+
+
 
 @media (max-width: 1084px) {
   .overlay-text {
@@ -132,6 +210,11 @@
     font-size: 1.25rem; /* Botão menor */
     padding: 0.75rem 1rem;
   }
+
+  .vaga-grid {
+    width: 80%;
+    display: inline-block;
+  }
 }
 
 @media (max-width: 652px) {
@@ -160,7 +243,6 @@
   }
 
   .section-quality {
-    border: 1px solid black;
     flex-direction: column; /* Alinha os cards verticalmente */
     padding: 1rem ; /* Reduz o espaçamento interno */
     gap: 1.5rem; /* Espaçamento entre os cards */
@@ -186,7 +268,6 @@
   .section-quality > div > p > span {
     font-weight: bold;
   }
-
 }
 
 @media (max-width: 469px) {
