@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink, MatIcon, MatCardModule],
+  imports: [RouterLink, MatIcon, MatCardModule, MatButton, MatButtonModule],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
