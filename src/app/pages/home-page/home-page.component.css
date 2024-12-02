@@ -16,7 +16,10 @@
   position: absolute;
   top: 30%; /* Ajuste para centralizar verticalmente */
   left: 40%; /* Mantém o texto centralizado horizontalmente */
-  transform: translate(-26%, -30%); /* Garante alinhamento correto em telas menores */
+  transform: translate(
+    -26%,
+    -30%
+  ); /* Garante alinhamento correto em telas menores */
   color: white;
   text-shadow: 0.0625rem 0.0625rem 0.3125rem rgba(0, 0, 0, 0.7); /* Para melhorar a visibilidade do texto */
   width: 80%; /* Ajuste conforme necessário */
@@ -24,7 +27,7 @@
 
 .p-acesso {
   font-size: 0.875rem !important;
-  margin-top: 2% !important; 
+  margin-top: 2% !important;
   font-style: italic;
 }
 
@@ -39,13 +42,13 @@
 }
 
 .trocaPalavra {
-  color: #32B796;
+  color: #32b796;
 }
 
 .btn-vagas {
   margin-top: 0.9375rem;
   padding: 0.9375rem 1.25rem;
-  background-color: #32B796; 
+  background-color: #32b796;
   color: white;
   border: none;
   border-radius: 0.3125rem;
@@ -57,22 +60,221 @@
 }
 
 .btn-vagas:hover {
-  background-color: white; 
-  color: #32B796;
-  border: .125rem solid #32B796;
+  background-color: white;
+  color: #32b796;
 }
 
+.icon {
+  color: #2c3e50;
+  line-height: 1.8rem;
+  font-size: 1.5rem; /* Aumentando o tamanho do ícone */
+}
 
+.section-quality {
+  display: flex;
+  flex-direction: row; /* Alinha os cards em linha */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  align-items: flex-start; /* Alinha os cards no topo */
+  padding: 1.25rem 0; /* Ajuste o padding conforme necessário */
+  gap: 2rem; /* Ajuste o espaço entre os cards */
+}
+
+.section-quality > div {
+  flex: 1; /* Permitir que os cards se ajustem proporcionalmente */
+  max-width: 300px; /* Limita a largura máxima dos cards, ajuste conforme necessário */
+  padding: 1.5rem;
+  margin: 0; /* Remover margens para evitar espaçamento indesejado */
+}
+
+.section-quality > div > h5 {
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamanho do título */
+}
+
+.section-quality > div > p {
+  font-size: 0.875rem; /* Tamanho do texto */
+}
+.section-quality > div > p > span {
+  font-weight: bold;
+}
+
+/*Cards*/
+.vaga-container {
+  background-color: #f8f7f7;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.vaga-container > div > h3 {
+  margin-top: 3.125rem;
+}
+
+.vaga-grid {
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.2fr;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.vaga-card {
+  border-radius: 0px;
+  margin-top: 3.125rem;
+  width: 100%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.vaga-avatar {
+  display: flex;
+  justify-content: center;
+  margin-right: 1.5625rem;
+  padding: 0.625rem;
+  border-bottom: 0.0625rem solid #e7e7e7;
+}
+
+.img-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.mat-header {
+  display: grid;
+  margin-bottom: 0.625rem;
+  color: #2c3e50;
+  font-weight: 400;
+}
+
+.mat-content {
+  font-size: 0.875rem;
+  color: #2c3e50;
+}
+
+.mat-content p {
+  display: inline-block;
+  margin-right: 10px; /* Espaçamento entre os parágrafos */
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+  margin-top: 0.625rem;
+}
+
+.tag {
+  background-color: #e7e5e5;
+  border-radius: 0.75rem;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.8rem;
+}
+
+.btn-vagas {
+  margin-top: 3.75rem;
+}
+
+.title-employer {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.employer-img {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+
+.employer-img img {
+  max-width: 100%;
+}
+
+.search-container {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+}
+
+.image-search  {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.image-search img {
+  width: 100%;
+  max-width: 28.125rem;
+
+}
+
+.search-job {
+  text-align: center;
+  line-height: 2.5rem;
+  width: 80%;
+}
+
+.search-job p {
+  line-height: 1.5;
+  font-size: .875rem;
+}
+
+.search-job-link {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.search-job-link a {
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 0;
+  font-size: 1.125rem;
+}
+
+.search-job-link a:hover {
+  background-color: rgb(43, 61, 97);
+
+
+}
 
 @media (max-width: 1084px) {
+
+  .overlay-text h1 {
+    margin-bottom: 0;
+  }
+
+  .overlay-text p {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+  .btn-vagas {
+    margin-top: 1.25rem;
+
+  }
+
+
   .overlay-text {
+    font-size: 1.5rem;
     left: 30%;
+  }
+}
+
+@media (max-width: 893px) {
+
+  .employer-img {
+    margin-bottom: 1rem;
+  }
+
+  .search-container {
+    display: inline-block;
+  }
+
+  .search-job {
+    width: 100%;
+  }
+
+  .search-job a {
+    margin-bottom: 3.125rem;
   }
 }
 
 /* Responsividade para tablets e dispositivos médios */
 @media (max-width: 768px) {
-
   .div-img img {
     height: 21.875rem;
   }
@@ -85,7 +287,7 @@
   }
 
   .overlay-text h1 {
-    font-size: 2.5rem; /* Reduz o tamanho do título */
+    font-size: 2.0rem; /* Reduz o tamanho do título */
     line-height: 1.1;
   }
 
@@ -94,13 +296,18 @@
   }
 
   .btn-vagas {
-    font-size: 1.25rem; /* Botão menor */
+    margin-bottom: .3125rem;
+    font-size: .625rem; /* Botão menor */
     padding: 0.75rem 1rem;
+  }
+
+  .vaga-grid {
+    width: 80%;
+    display: inline-block;
   }
 }
 
-@media (max-width: 652px){
-
+@media (max-width: 652px) {
   .div-img img {
     height: 400px;
     object-fit: cover;
@@ -108,7 +315,7 @@
   .overlay-text {
     top: 20%; /* Ajusta a posição do texto */
   }
-  
+
   .overlay-text h1 {
     line-height: 1.4;
     margin: 0;
@@ -124,17 +331,43 @@
     font-size: 1.25rem; /* Botão menor */
     padding: 0.75rem 1rem;
   }
-}
 
-@media (max-width: 469px){
-  .overlay-text h1 {
-    font-size: 4vh;
-    line-height: 1.4;
+  .section-quality {
+    flex-direction: column; /* Alinha os cards verticalmente */
+    padding: 1rem; /* Reduz o espaçamento interno */
+    gap: 1.5rem; /* Espaçamento entre os cards */
+  }
 
+  .section-quality > div {
+    width: 100%;
+    margin: 0 auto; /* Centraliza os cards */
+    padding: 0rem; /* Reduz o espaçamento interno */
+    max-width: 100%; /* Os cards ocupam toda a largura */
+  }
+
+  .section-quality > div > h5 {
+    font-size: 1.25rem; /* Reduz o tamanho do título */
+    gap: 0.375rem; /* Ajusta o espaçamento entre o ícone e o texto */
+  }
+
+  .section-quality > div > p {
+    font-size: 0.9rem; /* Reduz o tamanho do texto */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+  }
+
+  .section-quality > div > p > span {
+    font-weight: bold;
   }
 }
 
-@media (max-width: 368px){
+@media (max-width: 469px) {
+  .overlay-text h1 {
+    font-size: 4vh;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 368px) {
   .overlay-text h1 {
     font-size: 1.5rem;
     line-height: 1.5;
