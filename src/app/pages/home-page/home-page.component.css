@@ -228,7 +228,7 @@
 
 .search-job-link a:hover {
   background-color: rgb(43, 61, 97);
-  
+
 
 }
 
@@ -237,16 +237,16 @@
   .overlay-text h1 {
     margin-bottom: 0;
   }
-  
+
   .overlay-text p {
     font-size: 1rem;
     margin-top: 0;
   }
   .btn-vagas {
-    margin-top: .625rem;
+    margin-top: 1.25rem;
 
   }
-  
+
 
   .overlay-text {
     font-size: 1.5rem;
