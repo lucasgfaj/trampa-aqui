@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <span *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">
+        Nome é obrigatório.
+      </span>
+      <span *ngIf="form.get('name')?.errors?.['pattern'] && form.get('name')?.touched">
+        Nome deve conter apenas letras.
+      </span>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+      <span *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
+        Email é obrigatório.
+      </span>
+      <span *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
+        Email inválido.
+      </span>
+    </div>
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+  </form>
+  
