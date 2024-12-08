@@ -1,24 +1,39 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">Name:</label>
-      <input id="name" formControlName="name" />
-      <span *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">
-        Nome é obrigatório.
-      </span>
-      <span *ngIf="form.get('name')?.errors?.['pattern'] && form.get('name')?.touched">
-        Nome deve conter apenas letras.
-      </span>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input id="email" formControlName="email" />
-      <span *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
-        Email é obrigatório.
-      </span>
-      <span *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
-        Email inválido.
-      </span>
-    </div>
-    <button type="submit" [disabled]="form.invalid">Enviar</button>
-  </form>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="handleSubmit()">
+      <!-- Campo para o nome -->
+      <div>
+        <label for="name">Nome:</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Digite seu nome"
+        />
+        <div class="error" *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="error">
+          <div class="error" *ngIf="form.get('name')?.errors?.['required']">Nome é obrigatório.</div>
+          <div class="error" *ngIf="form.get('name')?.errors?.['pattern']">Digite apenas letras.</div>
+        </div>
+      </div>
+  
+      <!-- Campo para o email -->
+      <div>
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Digite seu email"
+        />
+        <div class="error" *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="error">
+          <div class="error" *ngIf="form.get('email')?.errors?.['required']">Email é obrigatório.</div>
+          <div class="error" *ngIf="form.get('email')?.errors?.['email']">Digite um email válido.</div>
+        </div>
+      </div>
+  
+      <!-- Botão de envio -->
+      <div>
+        <button type="submit" [disabled]="form.invalid">Enviar</button>
+      </div>
+    </form>
+  </div>
   
