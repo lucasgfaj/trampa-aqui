@@ -1,0 +1,39 @@
+<div class="entity-container">
+  <h2>Gerenciamento de Entidades</h2>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Formulário de adição de entidade -->
+  <form (ngSubmit)="addEntity()" class="entity-form">
+    <input 
+      [(ngModel)]="newEntity.name" 
+      name="name" 
+      placeholder="Nome" 
+      required
+    >
+    <input 
+      [(ngModel)]="newEntity.email" 
+      name="email" 
+      placeholder="Email" 
+      required
+    >
+    <div class="button-group">
+      <button type="submit" class="btn-add">Adicionar Entidade</button>
+      <button type="button" class="btn-list" (click)="loadEntities()">Listar Entidades</button>
+    </div>
+  </form>
+
+  <!-- Lista de entidades -->
+  <ul *ngIf="entities.length > 0" class="entity-list">
+    <li *ngFor="let entity of entities">
+      <div class="entity-details">
+        <div class="entity-name">{{ entity.name }}</div>
+        <div class="entity-email">{{ entity.email }}</div>
+      </div>
+      <button class="btn-delete" (click)="deleteEntity(entity.id)">Excluir</button>
+    </li>
+  </ul>
+</div>
