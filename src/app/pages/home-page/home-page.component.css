@@ -228,8 +228,10 @@
 
 .search-job-link a:hover {
   background-color: rgb(43, 61, 97);
+}
 
-
+.btn-vagas-all {
+  margin-bottom: 1.25rem;
 }
 
 @media (max-width: 1084px) {
