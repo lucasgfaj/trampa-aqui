@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink, MatIcon, MatCardModule, MatButton, MatButtonModule],
+  imports: [RouterLink, MatIcon, MatCardModule, MatButtonModule],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
 
   palavras: string[] = [".NET", "PHP", "JAVA", "C#", "PYTHON", "RUBY", "JAVASCRIPT", "TYPESCRIPT"];
   palavraAtual: string = this.palavras[0];
