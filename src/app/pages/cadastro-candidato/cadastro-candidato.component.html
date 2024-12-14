@@ -1,1 +1,69 @@
-<p>cadastro-candidato works!</p>
+<div class="container">
+  <h2>Conta</h2>
+  
+  <form class="form-container" [formGroup]="accountForm">
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="João" formControlName="name" />
+      </mat-form-field>
+  
+     <mat-form-field appearance="outline" class="form-field">
+        <mat-label>CPF</mat-label>
+        <input matInput placeholder="111.111.111-11" formControlName="cpf" />
+     </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="joao@email.com" formControlName="email" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Contato</mat-label>
+        <input matInput placeholder="(42) 9 0000-1234" formControlName="contact" />
+      </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Endereço CEP</mat-label>
+        <input matInput placeholder="85854-123" formControlName="cep" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Endereço Rua</mat-label>
+        <input matInput placeholder="Rua XYZ, 123" formControlName="street" />
+      </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Escolha de Experiência</mat-label>
+        <mat-select formControlName="experience">
+          <mat-option value="junior">Júnior</mat-option>
+          <mat-option value="pleno">Pleno</mat-option>
+          <mat-option value="senior">Sênior</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Linguagens</mat-label>
+        <input matInput placeholder="PHP" formControlName="language" />
+      </mat-form-field>
+    </div>
+  
+
+    <div class="upload-section">
+      <button mat-raised-button color="primary" (click)="onFileUpload()">
+        📎 Escolher arquivo
+      </button>
+    </div>
+  
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>

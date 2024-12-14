@@ -1,0 +1,48 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: left;
+    color: #333;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .form-field {
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .form-field:last-child {
+    margin-right: 0;
+  }
+  
+  .upload-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    width: 120px;
+  }

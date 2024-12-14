@@ -1,12 +1,45 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-cadastro-candidato',
   standalone: true,
-  imports: [],
+  imports: [
+    MatTabsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+  ],
   templateUrl: './cadastro-candidato.component.html',
-  styleUrl: './cadastro-candidato.component.css'
+  styleUrls: ['./cadastro-candidato.component.css'],
 })
 export class CadastroCandidatoComponent {
+  accountForm: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.accountForm = this.fb.group({
+      name: [''],
+      cpf: [''],
+      email: [''],
+      contact: [''],
+      cep: [''],
+      street: [''],
+      experience: [''],
+      language: [''],
+    });
+  }
+
+  onFileUpload(): void {
+    alert('Função de upload de arquivos');
+  }
 }
