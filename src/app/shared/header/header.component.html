@@ -3,18 +3,13 @@
   <!-- Sidenav -->
   <mat-sidenav #sidenav mode="over" class="sidenav">
     <mat-nav-list>
-      <a mat-list-item routerLink="/home-page">HOME</a>
+      <a mat-list-item routerLink="/home">HOME</a>
       <a mat-list-item routerLink="/ver-vagas">VER VAGAS</a>
       <a mat-list-item routerLink="/sou-empresa">SOU EMPRESA</a>
       <a mat-list-item [matMenuTriggerFor]="menuLogin">LOGIN</a>
       <mat-menu #menuLogin="matMenu">
         <button mat-menu-item routerLink="/login-candidato">USUÁRIO</button>
         <button mat-menu-item routerLink="/login-empresa">EMPRESA</button>
-      </mat-menu>
-      <a mat-list-item [matMenuTriggerFor]="menuCadastro">CADASTRAR-SE</a>
-      <mat-menu #menuCadastro="matMenu">
-        <button mat-menu-item routerLink="/cadastro-candidato">USUÁRIO</button>
-        <button mat-menu-item routerLink="/cadastro-empresa">EMPRESA</button>
       </mat-menu>
     </mat-nav-list>
   </mat-sidenav>
@@ -28,28 +23,21 @@
       </button>
 
       <!-- Logo da aplicação -->
-      <a routerLink="/home-page">
+      <a routerLink="/home">  
         <img class="logo" src="https://res.cloudinary.com/duposs86e/image/upload/v1730934427/trampa-aqui-logo_za3yfx.png" alt="Trampa Aqui Logo">
       </a>
 
       <!-- Navegação -->
       <nav class="desktop-nav">
-        <a mat-button routerLink="/home-page">HOME</a>
+        <a mat-button routerLink="/home">HOME</a>
         <a mat-button class="vagas" routerLink="/ver-vagas">VER VAGAS</a>
         <a mat-button routerLink="/sou-empresa">SOU EMPRESA</a>
-        
-        <!-- Menu de Login -->
-        <a mat-button [matMenuTriggerFor]="menuLogin">LOGIN</a>
-        <mat-menu #menuLogin="matMenu">
+      
+        <!-- Menu de Login/Cadastro -->
+        <a mat-button [matMenuTriggerFor]="menuCadastro" class="submenu">LOGIN</a>
+        <mat-menu #menuCadastro="matMenu">
           <button mat-menu-item routerLink="/login-candidato">USUÁRIO</button>
           <button mat-menu-item routerLink="/login-empresa">EMPRESA</button>
-        </mat-menu>
-
-        <!-- Menu de Cadastro -->
-        <a mat-button [matMenuTriggerFor]="menuCadastro" class="submenu">CADASTRAR-SE</a>
-        <mat-menu #menuCadastro="matMenu">
-          <button mat-menu-item routerLink="/cadastro-candidato">USUÁRIO</button>
-          <button mat-menu-item routerLink="/cadastro-empresa">EMPRESA</button>
         </mat-menu>
       </nav>
     </div>
