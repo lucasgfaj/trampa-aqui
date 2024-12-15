@@ -7,25 +7,31 @@
         alt=""
       />
     </div>
-    <div class="overlay-text">
+    <div class="contract-developer">
       <!-- Título e quantidade de programadores cadastrados -->
       <div>
-        <h1>CONTRATE SEU DESENVOLVEDOR</h1>
-        <p><span>+265 500</span> programadores cadastrados</p>
+        <h2>CONTRATE SEU DESENVOLVEDOR</h2>
+        <p class="contract-developer-p">
+          <span>+265 500</span> programadores cadastrados
+        </p>
       </div>
 
       <!-- Botão de chamada para ação -->
-      <button>COMECE A CONTRATAR</button>
+      <button class="btn-contract" routerLink="/login-empresa">
+        COMECE A CONTRATAR
+      </button>
 
       <!-- Informações sobre contratação e teste gratuito -->
-      <div>
+      <div class="contract-developer-div">
         <p>
           Contrate programadores Front-End, Back-End, Mobile ou Full Stack
           através do nosso site
         </p>
         <p>
-          Teste a nossa solução e faça o seu próximo recrutamento sem nenhum
-          custo!
+          <span class="font-weight"
+            >Teste a nossa solução e faça o seu próximo recrutamento sem nenhum
+            custo!</span
+          >
         </p>
       </div>
     </div>
@@ -72,107 +78,182 @@
 
   <!-- Seção: Empresas que utilizam a plataforma -->
   <section class="section-employers">
-    <div>
-      <h2>
+    <div class="section-employers-div">
+      <!-- Título centralizado -->
+      <h3 class="employers-title">
         Algumas das centenas de empresas que já recrutaram na ProgramaThor
-      </h2>
-      <div>
-        <!-- Imagem de empresa -->
-        <div><img src="https://res.cloudinary.com/duposs86e/image/upload/v1734227545/logo-fgv-0de38d876b84f9af7e56d587fe3af6a5e4480f0a7050abb0bca051467e614d65.png_yt3iub.png" alt="" /></div>
+      </h3>
 
-        <!-- Informações sobre a ProgramaThor -->
-        <div>
-          <p>ProgramaThor é acelerada pela GVentures</p>
-          <p>Aceleradora da FGV - Fundação Getulio Vargas.</p>
-        </div>
+      <div class="employer-img">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1733014688/f8745eced7576909c3224a4964c59169_ndmkkg.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <!-- Container flex -->
+    <div class="section-employers-content">
+      <!-- Imagem da empresa -->
+      <div class="section-employers-img">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1734227545/logo-fgv-0de38d876b84f9af7e56d587fe3af6a5e4480f0a7050abb0bca051467e614d65.png_yt3iub.png"
+          alt="Logo da GVentures"
+        />
+      </div>
+
+      <!-- Informações ao lado da imagem -->
+      <div class="section-employers-info">
+        <p>ProgramaThor é acelerada pela GVentures</p>
+        <p class="section-employers-info-p">
+          Aceleradora da FGV - Fundação Getulio Vargas.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Seção: Como funciona -->
   <section class="section-works">
-    <div>
-      <h2>Como funciona?</h2>
+    <div class="section-works-title">
+      <h3>Como funciona?</h3>
+    </div>
 
-      <!-- Botão de chamada para ação -->
-      <button>COMECE A CONTRATAR</button>
+    <!-- Botão de chamada para ação -->
+    <div class="section-works-content">
+      <button class="btn-contract">COMECE A CONTRATAR</button>
 
       <!-- Informações adicionais sobre o funcionamento -->
-      <p>Sem contrato ou cartão de crédito</p>
-      <p>Receba suas primeiras candidaturas em poucas horas de graça</p>
+      <div class="info-pay">
+        <p>Sem contrato ou cartão de crédito</p>
+        <p>Receba suas primeiras candidaturas em poucas horas de graça</p>
+      </div>
     </div>
   </section>
 
   <!-- Seção: Explicação detalhada da plataforma -->
-<section class="section-details">
+  <section class="section-details">
     <!-- Parte 1: Introdução e benefícios da plataforma -->
-    <div class="grid-container">
-      <div class="image">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1734227740/135aca451409c5c52a7da3da606bf032_zjjllr.png" alt="">
+    <div class="details-grid">
+      <div class="details-image">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1734227740/135aca451409c5c52a7da3da606bf032_zjjllr.png"
+          alt=""
+        />
       </div>
-      <div class="text">
-        <h5>Sua empresa está em busca de contratar os melhores programadores do mercado?</h5>
-        <p>Com ProgramaThor, contrate os melhores talentos de tecnologia para a sua empresa!</p>
-        <p>A ProgramaThor é uma startup 100% voltada para a divulgação de vagas de programadores.</p>
-        <p>Nosso objetivo é que esse caminho seja simples, eficiente e rápido, através do uso de tecnologias que possibilitam elencar somente candidatos alinhados com as necessidades da empresa.</p>
+      <div class="details-text">
+        <h5>
+          Sua empresa está em busca de contratar os melhores programadores do
+          mercado?
+        </h5>
+        <p>
+          Com ProgramaThor, contrate os melhores talentos de tecnologia para a
+          sua empresa!
+        </p>
+        <p>
+          A ProgramaThor é uma startup 100% voltada para a divulgação de vagas
+          de programadores.
+        </p>
+        <p>
+          Nosso objetivo é que esse caminho seja simples, eficiente e rápido,
+          através do uso de tecnologias que possibilitam elencar somente
+          candidatos alinhados com as necessidades da empresa.
+        </p>
       </div>
     </div>
-  
+
     <!-- Parte 2: Revisão das vagas -->
     <div class="grid-container">
       <div class="text">
         <h5>Nosso time de TI vai revisar sua vaga.</h5>
-        <p>Nosso time composto por especialistas em TI analisará a descrição da vaga cadastrada, a fim de garantir que a sua publicação resultará na candidatura dos profissionais adequados.</p>
-        <p>Esse time acompanhará todo o processo, garantindo que, se necessário, sua empresa será comunicada sobre ajustes na descrição da vaga.</p>
+        <p>
+          Nosso time composto por especialistas em TI analisará a descrição da
+          vaga cadastrada, a fim de garantir que a sua publicação resultará na
+          candidatura dos profissionais adequados.
+        </p>
+        <p>
+          Esse time acompanhará todo o processo, garantindo que, se necessário,
+          sua empresa será comunicada sobre ajustes na descrição da vaga.
+        </p>
       </div>
       <div class="image">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1734227739/132f6d2660f8f78b5533fcfab0173715_nuujaf.png" alt="">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1734227739/132f6d2660f8f78b5533fcfab0173715_nuujaf.png"
+          alt=""
+        />
       </div>
     </div>
-  
+
     <!-- Parte 3: Algoritmo inteligente -->
     <div class="grid-container">
       <div class="image">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1734227739/dd18f15c270a6e0d2e5432cab05d46e8_vt5vsa.png" alt="">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1734227739/dd18f15c270a6e0d2e5432cab05d46e8_vt5vsa.png"
+          alt=""
+        />
       </div>
       <div class="text">
         <h5>Deixa rodar nosso algoritmo.</h5>
-        <p>Nossa inteligência artificial mapeia programadores cadastrados e identifica perfis alinhados às necessidades da vaga.</p>
+        <p>
+          Nossa inteligência artificial mapeia programadores cadastrados e
+          identifica perfis alinhados às necessidades da vaga.
+        </p>
         <p>Mais de <span>265.500</span> profissionais de TI cadastrados!</p>
       </div>
     </div>
-  
+
     <!-- Parte 4: Processo seletivo em um só lugar -->
     <div class="grid-container">
       <div class="text">
         <h5>Todo o seu processo seletivo em um só lugar.</h5>
-        <p>Marque candidatos como “aprovado”, “favoritado” ou “recusado” e comunique-se diretamente via nossa plataforma.</p>
-        <p>Apenas candidatos com mais de 50% de compatibilidade poderão se aplicar, resultando em um filtro automático eficaz.</p>
+        <p>
+          Marque candidatos como “aprovado”, “favoritado” ou “recusado” e
+          comunique-se diretamente via nossa plataforma.
+        </p>
+        <p>
+          Apenas candidatos com mais de 50% de compatibilidade poderão se
+          aplicar, resultando em um filtro automático eficaz.
+        </p>
       </div>
       <div class="image">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1734227736/ats_vaga_programador-ea3d3e2066b5d5d6406056c9dfc0699cc164af9ecb5b6a79e554a27184d3ac27.png_us5jmj.png" alt="">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1734227736/ats_vaga_programador-ea3d3e2066b5d5d6406056c9dfc0699cc164af9ecb5b6a79e554a27184d3ac27.png_us5jmj.png"
+          alt=""
+        />
       </div>
     </div>
-  
+
     <!-- Parte 5: Suporte ao cliente -->
     <div class="grid-container">
       <div class="image">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1734227736/1d1b9f832c28a3319c0b258a4ea0ef1c_j8oced.png" alt="">
+        <img
+          src="https://res.cloudinary.com/duposs86e/image/upload/v1734227736/1d1b9f832c28a3319c0b258a4ea0ef1c_j8oced.png"
+          alt=""
+        />
       </div>
       <div class="text">
         <h5>Nosso time de suporte está sempre à disposição!</h5>
-        <p>Atendimento humano para resolver problemas e maximizar resultados.</p>
-        <p>Experimente nosso teste gratuito: divulgue até 5 vagas em 30 dias, sem custo!</p>
+        <p>
+          Atendimento humano para resolver problemas e maximizar resultados.
+        </p>
+        <p>
+          Experimente nosso teste gratuito: divulgue até 5 vagas em 30 dias, sem
+          custo!
+        </p>
       </div>
     </div>
   </section>
-  
-  <section class="section-works">
-    <div>
-      <button>COMECE A CONTRATAR</button>
 
-      <p>Sem contrato ou cartão de crédito</p>
-      <p>Receba suas primeiras candidaturas em poucas horas de graça</p>
+  <!-- Seção: Como funciona -->
+  <section class="section-works">
+    <!-- Botão de chamada para ação -->
+    <div class="section-works-content">
+      <button class="btn-contract">COMECE A CONTRATAR</button>
+
+      <!-- Informações adicionais sobre o funcionamento -->
+      <div class="info-pay">
+        <p>Sem contrato ou cartão de crédito</p>
+        <p>Receba suas primeiras candidaturas em poucas horas de graça</p>
+      </div>
     </div>
   </section>
 </main>
