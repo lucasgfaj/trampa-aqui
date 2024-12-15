@@ -1,1 +1,58 @@
-<p>login-candidato works!</p>
+<div class="tela-login">
+    <div class="login-container">
+        <h2>Login como candidato</h2>
+        <mat-tab-group>
+          <mat-tab label="Log In">
+            <form class="login-form">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" placeholder="Seu e-mail" />
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Senha</mat-label>
+                <input matInput type="password" placeholder="******" />
+                <button mat-icon-button matSuffix tabindex="-1">
+                  <mat-icon>visibility</mat-icon>
+                </button>
+              </mat-form-field>
+      
+              <div class="forgot-password">
+                <a href="#">Esqueceu sua senha?</a>
+              </div>
+      
+              <button id="loginbutton" mat-raised-button class="full-width">
+                Login
+              </button>
+            </form>
+          </mat-tab>
+      
+          <mat-tab label="Cadastre-se">
+            <form class="cadastro-form">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>*E-mail</mat-label>
+                <input matInput type="email" placeholder="Seu e-mail" />
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>*Senha</mat-label>
+                <input matInput type="password" placeholder="******" />
+              </mat-form-field>
+    
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>*Senha confirmação</mat-label>
+                <input matInput type="password" placeholder="******" />
+              </mat-form-field>
+              <button id="cadbutton" mat-raised-button class="full-width">
+                Criar conta
+              </button>
+    
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      
+        <div class="footer-link">
+          <a href="/login-empresa">Eu sou uma empresa</a>
+        </div>
+    </div>    
+</div>
