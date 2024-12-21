@@ -1,7 +1,10 @@
 <div class="tela-login">
+    <h2>
+      {{ logincandidato.substring(0, logincandidato.lastIndexOf(' ')) }}
+    <span [class.highlight]="isCadastro">Candidato</span>
+    </h2>
     <div class="login-container">
-        <h2>Login como candidato</h2>
-        <mat-tab-group>
+      <mat-tab-group (selectedTabChange)="onTabChange($event)">
           <mat-tab label="Log In">
             <form class="login-form">
               <mat-form-field appearance="outline" class="full-width">

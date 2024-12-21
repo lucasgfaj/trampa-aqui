@@ -5,7 +5,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-
 @Component({
   selector: 'app-loginEmpresa',
   standalone: true,
@@ -17,8 +16,21 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   templateUrl: './login-empresa.component.html',
-  styleUrl: './login-empresa.component.css'
+  styleUrls: ['./login-empresa.component.css']
 })
 export class LoginEmpresaComponent {
+  loginempresa: string = "Login como empresa";
+  isCadastro: boolean = false;
 
+  onTabChange(event: any): void {
+    const selectedTabIndex = event.index;
+
+    if (selectedTabIndex === 0) {
+      this.loginempresa = "Login como empresa";
+      this.isCadastro = false;
+    } else if (selectedTabIndex === 1) {
+      this.loginempresa = "Cadastre-se como empresa";
+      this.isCadastro = true;
+    }
+  }
 }

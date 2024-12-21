@@ -1,27 +1,27 @@
-.mat-mdc-tab-body-content{
-    overflow: hidden;
+#loginbutton{
+  background-color: #32B796;
+  color: white;
+  border-radius: 2px;
 }
 
-#loginbutton{
-    background-color: #32B796;
-    color: white;
-    border-radius: 2px;
+.highlight {
+  color: #32B796; /* Cor personalizada */
+  font-weight: bold; /* Opcional */
 }
 
 #cadbutton{
-    background-color: #32B796;
-    color: white;
-    border-radius: 2px;
+  background-color: #32B796;
+  color: white;
+  border-radius: 2px;
 }
 
 .tela-login{
     background-color: #34495E;
-    height: 100%;
     overflow: hidden;
 }
 .login-container {
-    width: 400px;
-    margin: 100px auto;
+    width: 25rem;
+    margin: 6.25rem auto;
     text-align: center;
     background-color: #f7f7f7;
     padding: 20px;
@@ -31,8 +31,9 @@
   }
   
   h2 {
-    margin-bottom: 20px;
-    color: #2c3e50;
+    color: white;
+    text-align: center;
+    margin-top: 3.75rem;
   }
   
   .login-form {
