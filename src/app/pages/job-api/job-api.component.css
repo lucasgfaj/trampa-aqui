@@ -1,0 +1,39 @@
+.card {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+}
+.card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.card h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.card p {
+    font-size: 16px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.card button:hover {
+    background-color: #0056b3;
+}
