@@ -55,7 +55,7 @@ mat-icon {
     background: white;
     display: flex;
     align-items: center;
-    gap: .3125rem; 
+    gap: .3125rem;
 }
 
 .search-bar label {
@@ -71,4 +71,17 @@ mat-icon {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     background-color: white;
     color: #333;
+}
+
+.api-link-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.api-link {
+  background-color: #F1F1F180;
+  padding: 1.1875rem;
+  margin: 1.25rem;
+  width: 75rem;
 }
