@@ -27,10 +27,64 @@
             <app-job-api></app-job-api>
           </div>
     </section>
-    <section>
-        <div>
-            <div></div>
-            <div></div>
-        </div>
-    </section>
+    <section class="job-section">
+      <div class="filters">
+          <!-- Filtros -->
+          <div class="filter-category">
+              <h3>Tipo de contrato</h3>
+              <button>CLT</button>
+              <button>PJ</button>
+              <button>Estágio</button>
+          </div>
+          <div class="filter-category">
+              <h3>Nível de experiência</h3>
+              <button>Júnior</button>
+              <button>Pleno</button>
+              <button>Sênior</button>
+          </div>
+          <div class="filter-category">
+              <h3>Tamanho da empresa</h3>
+              <button>Startup</button>
+              <button>Grande empresa</button>
+              <button>Pequena/média empresa</button>
+          </div>
+      </div>
+
+      <div class="jobs">
+          <!-- Vaga 1 -->
+          <div class="job-card">
+              <img src="logo-capitani.png" alt="Logo Capitani Group" class="company-logo" />
+              <div class="job-details">
+                  <h2>Desenvolvedor(a) MongoDB / .NET</h2>
+                  <p>Capitani Group | São Paulo (Presencial)</p>
+                  <p>Grande empresa | Até R$15.000</p>
+                  <p>Aceito candidatos dispostos a se mudar</p>
+                  <div class="tags">
+                      <span>ASP.NET Core</span>
+                      <span>MongoDB</span>
+                      <span>.NET</span>
+                  </div>
+              </div>
+              <button class="apply-button">Candidatar-se</button>
+          </div>
+
+          <!-- Vaga 2 -->
+          <div class="job-card">
+              <img src="logo-rockfeller.png" alt="Logo Rockfeller" class="company-logo" />
+              <div class="job-details">
+                  <h2>Desenvolvedor(a) PHP Pleno</h2>
+                  <p>Rockfeller Franchising Brasil | Balneário Camboriú (Presencial)</p>
+                  <p>Grande empresa | Até R$8.000</p>
+                  <p>Aceito candidatos dispostos a se mudar</p>
+                  <div class="tags">
+                      <span>DevOps</span>
+                      <span>Docker</span>
+                      <span>jQuery</span>
+                      <span>PHP</span>
+                  </div>
+              </div>
+              <button class="apply-button">Candidatar-se</button>
+          </div>
+      </div>
+  </section>
 </main>
