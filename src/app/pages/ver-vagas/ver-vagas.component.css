@@ -40,8 +40,8 @@
 .search-bar {
   display: flex;
   justify-content: center;
-  position: relative;
-  width: 100%;
+  position: sticky;
+  width: 20rem;
   max-width: 31.25rem; /* Limita a largura da barra de pesquisa */
   margin: 0 auto;
   gap: 0.5rem;
@@ -62,14 +62,14 @@ mat-icon {
 
 .search-bar input {
   flex: 1; /* Garante que o input ocupe o espaço disponível */
-  padding: 10px 15px;
+  padding: .625rem .9375rem;
   font-size: 1rem;
   border: none;
   outline: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.2);
   background-color: white;
   color: #333;
-}
+  width: 31.25rem;}
 
 /* Responsividade */
 @media (max-width: 1024px) {
@@ -122,7 +122,7 @@ mat-icon {
   }
 
   .dev-job {
-      top: 40%;
+      top: 35%;
       width: 90%;
   }
 
@@ -192,7 +192,7 @@ mat-icon {
   cursor: pointer;
   margin-bottom: 0.5rem;
   margin-right: .3125rem;
-  border: 1px solid rgb(235, 230, 230);
+  border: .0625rem solid rgb(235, 230, 230);
 }
 
 .filter-category button:hover {
@@ -215,7 +215,7 @@ mat-icon {
   border: 1px solid #dddddd6b;
   padding: 0.5rem;
   border-radius: .5rem;
-  box-shadow: 0 2px .3125rem rgba(0, 0, 0, 0.048);
+  box-shadow: 0 .125rem .3125rem rgba(0, 0, 0, 0.048);
 }
 
 .company-logo {
@@ -289,6 +289,58 @@ mat-icon {
   background-color: #323fce;
 }
 
+.filter-card-control {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-card {
+  text-align: center;
+  align-items: center;
+  border: 1px solid black;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Largura 100% do contêiner pai */
+  max-width: 62.5rem; /* Limite máximo de largura, ajustável */
+  min-width: 12.5rem; /* Largura mínima, ajustável */
+  padding: .625rem;
+}
+
+.filter-card button {
+  all: unset; /* Remove todos os estilos padrão */
+  background: none; /* Garante que não há fundo */
+  border: none; /* Remove as bordas */
+  padding: 0; /* Remove o espaçamento interno */
+  margin: 0; /* Remove qualquer margem */
+  font: inherit; /* Herda a fonte do elemento pai */
+  text-align: inherit; /* Herda o alinhamento do texto */
+  cursor: pointer; /* Define o cursor para pointer */
+}
+
+.iconify {
+  font-size: 2rem;
+  color: #2A3F54;
+  margin-right: 1.2rem;
+}
+
+.filter-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-card-header h4 {
+  font-weight: 400;
+  color: #2A3F54;
+  margin-left: 1.5rem;
+}
+
+.filter-card-body {
+  display: block;
+}
+
+
+
 /* Responsividade */
 /* Tornar seção responsiva */
 @media (max-width: 1200px) {
@@ -306,6 +358,10 @@ mat-icon {
 
   .jobs {
     order: 2; /* Mantém as vagas acima */
+  }
+
+  .filter-card-control {
+    display: flex;
   }
 }
 
@@ -377,5 +433,9 @@ mat-icon {
 @media (max-width: 364px) {
   .job-details {
     line-height: 1;
+  }
+
+  .filter-card {
+    max-width: 319px;
   }
 }

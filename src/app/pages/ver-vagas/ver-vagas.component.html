@@ -27,39 +27,54 @@
       <app-job-api></app-job-api>
     </div>
   </section>
+
+  <div class="filter-card-control">
+    <div class="filter-card">
+      <div class="filter-card-header">
+        <h4>Filtrar</h4>
+        <button (click)="toggleVisibility()"><span class="iconify" data-icon="codicon:filter-filled"
+            data-inline="false"></span></button>
+      </div>
+    </div>
+  </div>
+
   <section class="job-section">
-    <div class="filters">
-      <!-- Filtros -->
-      <div class="filter-category">
-        <h3>Filtrar: <button>TODAS</button></h3>
-      </div>
 
-      <div class="filter-category">
-        <h3>Tipo de contrato</h3>
-        <button>CLT</button>
-        <button>PJ</button>
-        <button>Estágio</button>
-      </div>
+    <div *ngIf="secFilter" class="filter-card-body">
+      <div class="filters">
+        <!-- Filtros -->
+        <div class="filter-category">
+          <h3>Filtrar: <button>TODAS</button></h3>
+        </div>
 
-      <div class="filter-category">
-        <h3>Nível de experiência</h3>
-        <button>Júnior</button>
-        <button>Pleno</button>
-        <button>Sênior</button>
-      </div>
+        <div class="filter-category">
+          <h3>Tipo de contrato</h3>
+          <button>CLT</button>
+          <button>PJ</button>
+          <button>Estágio</button>
+        </div>
 
-      <div class="filter-category">
-        <h3>Tamanho da empresa</h3>
-        <button>Startup</button>
-        <button>Grande empresa</button>
-        <button>Pequena/média empresa</button>
+        <div class="filter-category">
+          <h3>Nível de experiência</h3>
+          <button>Júnior</button>
+          <button>Pleno</button>
+          <button>Sênior</button>
+        </div>
+
+        <div class="filter-category">
+          <h3>Tamanho da empresa</h3>
+          <button>Startup</button>
+          <button>Grande empresa</button>
+          <button>Pequena/média empresa</button>
+        </div>
       </div>
     </div>
 
     <div class="jobs">
       <!-- Vaga 1 -->
       <div class="job-card">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1731018683/hpcugjkjnvtbpzlzhx1q.jpg_ktaoll.png" alt="Logo Capitani Group" class="company-logo" />
+        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1731018683/hpcugjkjnvtbpzlzhx1q.jpg_ktaoll.png"
+          alt="Logo Capitani Group" class="company-logo" />
         <div class="job-info">
           <h6>Desenvolvedor(a) MongoDB / .NET</h6>
           <div class="job-details">
@@ -71,29 +86,12 @@
             <span class="tags-span">ASP.NET Core</span>
             <span class="tags-span">MongoDB</span>
             <span class="tags-span">.NET</span>
-            <span><button class="apply-button">Candidatar-se</button></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vaga 2 -->
-      <div class="job-card">
-        <img src="https://res.cloudinary.com/duposs86e/image/upload/v1731018683/hpcugjkjnvtbpzlzhx1q.jpg_ktaoll.png" alt="Logo Rockfeller" class="company-logo" />
-        <div class="job-info">
-          <h6>Desenvolvedor(a) MongoDB / .NET</h6>
-          <div class="job-details">
-            <p>Capitani Group | São Paulo (Presencial)</p>
-            <p>Grande empresa | Até R$15.000</p>
-            <p>Aceito candidatos dispostos a se mudar</p>
-          </div><div class="tags">
-            <span class="tags-span">DevOps</span>
-            <span class="tags-span">Docker</span>
-            <span class="tags-span">jQuery</span>
-            <span class="tags-span">PHP</span>
-            <span><button class="apply-button">Candidatar-se</button></span>
+            <span><button class="apply-button" (click)="openModal()">Candidatar-se</button></span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
 </main>

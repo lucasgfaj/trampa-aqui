@@ -1,7 +1,6 @@
 .card {
   display: grid;
   grid-template-columns: auto 1fr;
-  max-width: 56.25rem;
   margin: .625rem auto;
   padding: .625rem;
   border-radius: .5rem;
@@ -52,4 +51,56 @@
 
 .card button:hover {
   background-color: #0056b3;
+}
+
+/* Media queries para tornar o layout responsivo */
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr; /* Ajusta o layout para 1 coluna em telas menores */
+    padding: 1rem;
+  }
+
+  .card-img img {
+    width: 5rem;
+  }
+
+  .card h2 {
+    font-size: 1.125rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    white-space: normal; /* Permite que o texto ocupe mais de uma linha se necessário */
+  }
+
+  .card button {
+    width: auto; /* Ajusta a largura do botão para se adaptar ao conteúdo */
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    max-width: 100%; /* Utiliza toda a largura disponível na tela */
+    padding: 1.25rem;
+  }
+
+  .card-img img {
+    width: 4.5rem;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+  }
+
+  .card button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
 }
