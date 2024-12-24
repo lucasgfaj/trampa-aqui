@@ -261,7 +261,7 @@ mat-icon {
   margin-top: 0.5rem;
 }
 
-.tags span {
+.tags-span {
   font-size: 0.8rem;
   background-color: #f0f0f0;
   border: none;
@@ -287,4 +287,95 @@ mat-icon {
 
 .apply-button:hover {
   background-color: #323fce;
+}
+
+/* Responsividade */
+/* Tornar seção responsiva */
+@media (max-width: 1200px) {
+  /* Reduzindo padding em telas médias */
+  .job-section {
+    padding: 1rem 5rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .filters {
+    max-width: 100%;
+    order: 1; /* Move os filtros abaixo */
+  }
+
+  .jobs {
+    order: 2; /* Mantém as vagas acima */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ajustes para tablets */
+  .job-section {
+    padding: 1rem;
+  }
+
+  .job-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .company-logo {
+    display: none ;
+  }
+
+  .job-info {
+    gap: 0.8rem;
+  }
+
+  .tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Ajustes para dispositivos móveis */
+
+  .job-section {
+    gap: 1.5rem;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filters h3 {
+    text-align: center;
+  }
+
+  .filter-category button {
+    width: 100%; /* Botões ocupam 100% da largura */
+  }
+
+  .jobs {
+    gap: 1.5rem;
+  }
+
+  .job-card {
+    padding: 1rem;
+  }
+
+  .job-details {
+    flex-direction: column; /* Organiza detalhes em coluna */
+    text-align: center;
+  }
+
+  .tags {
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 364px) {
+  .job-details {
+    line-height: 1;
+  }
 }
