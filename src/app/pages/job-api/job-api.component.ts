@@ -19,9 +19,8 @@ export class JobApiComponent implements OnInit {
   private apiUrl = environmentApi.apiUrl;
 
   private startApi(): string {
-    let startApi: boolean = false; // False para Não Consumir a API  e True para Consumir a API
     let apiKey: string = '';
-    if (startApi) {
+    if (environmentApi.production === true) {
       apiKey = environmentApi.rapidApiKey;
     }
     return apiKey;

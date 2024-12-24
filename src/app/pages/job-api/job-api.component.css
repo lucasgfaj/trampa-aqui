@@ -1,7 +1,7 @@
 .card {
   display: grid;
   grid-template-columns: auto 1fr;
-  max-width: 62.5rem;
+  max-width: 56.25rem;
   margin: .625rem auto;
   padding: .625rem;
   border-radius: .5rem;
