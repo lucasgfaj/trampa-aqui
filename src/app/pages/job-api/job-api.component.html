@@ -1,0 +1,17 @@
+<div class="card" *ngIf="job; else noJobsTemplate">
+  <div class="card-img"><img [src]="job.image" alt="Company Logo"></div>
+  <div class="card-content">
+  <h2>{{ job.title }}</h2>
+  <p>{{ job.employmentType }}</p>
+  <p>{{ job.location }}</p>
+  <button (click)="openJobLink()">Ver mais</button>
+</div>
+
+</div>
+
+<ng-template #noJobsTemplate>
+  <div class="card">
+  <p *ngIf="isError">Erro ao carregar dados.</p>
+  <p *ngIf="!isError">No jobs available at the moment.</p>
+  </div>
+</ng-template>
