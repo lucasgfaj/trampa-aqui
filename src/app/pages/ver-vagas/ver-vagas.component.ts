@@ -30,7 +30,7 @@ export class VerVagasComponent {
         Swal.fire({
           title: 'Você tem certeza que deseja se candidatar a esta vaga?',
           text: "Você poderá perder o emprego dos seus sonhos!",
-          icon: 'warning', // Em TypeScript, usa-se "icon" em vez de "type"
+          icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
