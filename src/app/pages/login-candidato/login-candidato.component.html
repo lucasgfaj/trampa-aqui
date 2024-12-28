@@ -34,7 +34,7 @@
         <form class="cadastro-form">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" name="email" [(ngModel)]="email" />
+            <input matInput type="email" placeholder="Seu e-mail" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" />
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">

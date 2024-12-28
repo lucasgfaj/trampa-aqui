@@ -9,12 +9,12 @@
         <form class="login-form">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" />
+            <input matInput type="email" placeholder="Seu e-mail" [(ngModel)]="loginEmail" [ngModelOptions]="{standalone: true}" />
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="******" />
+            <input matInput type="password" placeholder="******" [(ngModel)]="loginPassword" [ngModelOptions]="{standalone: true}" />
             <button mat-icon-button matSuffix tabindex="-1">
               <mat-icon>visibility</mat-icon>
             </button>
@@ -24,7 +24,7 @@
             <a href="#">Esqueceu sua senha?</a>
           </div>
 
-          <button id="loginbutton" mat-raised-button class="full-width">
+          <button id="loginbutton" mat-raised-button class="full-width" (click)="onLogin()">
             Login
           </button>
         </form>
@@ -34,19 +34,19 @@
         <form class="cadastro-form">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" />
+            <input matInput type="email" placeholder="Seu e-mail" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" />
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*Senha</mat-label>
-            <input matInput type="password" placeholder="******" />
+            <input matInput type="password" placeholder="******"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*Senha confirmação</mat-label>
-            <input matInput type="password" placeholder="******" />
+            <input matInput type="password" placeholder="******" [(ngModel)]="passwordConfirm" [ngModelOptions]="{standalone: true}" />
           </mat-form-field>
-          <button id="cadbutton" mat-raised-button class="full-width">
+          <button id="cadbutton" mat-raised-button class="full-width" (click)="onSubmit()">
             Criar conta
           </button>
         </form>

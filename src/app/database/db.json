@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "c184",
-      "email": "lucasgontarzfajardo@hotmail.com",
+      "email": "lucasgontardo@hotmail.com",
       "password": "123456",
       "typeuser": "candidato",
       "createdAt": "2024-12-28T02:25:00.679Z",
@@ -12,6 +12,47 @@
       "cep": "",
       "linguages": [],
       "experiencies": "Estágio",
+      "imageprofile": ""
+    },
+    {
+      "id": "c327",
+      "email": "lucasgfajardo09@gmail.com",
+      "password": "12345678",
+      "typeuser": "candidato",
+      "createdAt": "2024-12-28T12:26:03.431Z",
+      "cpf": "",
+      "phone": "",
+      "address": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Não informado",
+      "imageprofile": ""
+    },
+    {
+      "id": "c163",
+      "email": "lucasgontarzfajardo@hotmail.com",
+      "password": "123456789",
+      "typeuser": "developer",
+      "createdAt": "2024-12-28T12:34:52.171Z",
+      "cpf": "",
+      "phone": "",
+      "address": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Não informado",
+      "imageprofile": ""
+    },
+    {
+      "id": "8678",
+      "name": "",
+      "email": "trampa@aqui.com.br",
+      "password": "123456",
+      "typeuser": "enterprise",
+      "createdAt": "2024-12-28T13:04:09.606Z",
+      "cnpj": "",
+      "phone": "",
+      "address": "",
+      "cep": "",
       "imageprofile": ""
     }
   ]

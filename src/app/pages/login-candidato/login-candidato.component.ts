@@ -34,10 +34,11 @@ export class LoginCandidatoComponent {
   loginPassword: string = '';
 
   // Campos de Cadastro
+  name: string = '';
   email: string = '';
   password: string = '';
   passwordConfirm: string = '';
-  typeuser: string = 'candidato';
+  typeuser: string = 'developer';
   CreatedAt?: Date = new Date();
   cpf?: string = '';
   phone?: string = '';
@@ -67,7 +68,22 @@ export class LoginCandidatoComponent {
       return;
     }
     console.log('Logando com:', { email: this.loginEmail, password: this.loginPassword });
-    // Adicione lógica de autenticação aqui
+
+    const user: IUser = {
+      email: this.loginEmail,
+      password: this.loginPassword,
+      typeuser: 'developer',
+    };
+
+    this.userService.loginUser(user).subscribe(
+      (response) => {
+        console.log('Usuário logado com sucesso:', response);
+        this.router.navigate(['/dashboard-candidato']);
+      },
+      (error) => {
+        console.error('Erro ao logar usuário:', error);
+      }
+    );
   }
 
   onSubmit(): void {
@@ -82,9 +98,10 @@ export class LoginCandidatoComponent {
     }
 
     const newUser: IUser = {
+      name: this.name,
       email: this.email,
       password: this.password,
-      typeuser: 'candidato',
+      typeuser: 'developer',
       createdAt: this.CreatedAt,
       cpf: this.cpf,
       phone: this.phone,

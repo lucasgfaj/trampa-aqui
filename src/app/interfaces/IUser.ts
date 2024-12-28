@@ -12,6 +12,7 @@ export interface IUser {
   linguages?: ProgrammingLanguages[]; // Linguagens de programação
   experiencies?: ExperienceLevel; // Nível de experiência
   imageprofile?: string; // URL ou base64 para foto de perfil
+  cnpj?: string; // CNPJ da empresa
 }
 
 // Enumerado para linguagens de programação
