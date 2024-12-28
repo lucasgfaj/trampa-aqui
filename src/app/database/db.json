@@ -1,4 +1,18 @@
 {
   "users": [
+    {
+      "id": "c184",
+      "email": "lucasgontarzfajardo@hotmail.com",
+      "password": "123456",
+      "typeuser": "candidato",
+      "createdAt": "2024-12-28T02:25:00.679Z",
+      "cpf": "",
+      "phone": "",
+      "address": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Estágio",
+      "imageprofile": ""
+    }
   ]
 }
