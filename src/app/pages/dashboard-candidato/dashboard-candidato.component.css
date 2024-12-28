@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 1rem;
+}
+
+.container {
+  max-width: 56.25rem; /* 900px */
+  width: 95%;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.25rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  color: #5E6366;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-field {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.625rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 0.3125rem rgba(63, 81, 181, 0.5);
+}
+
+#experience {
+  width: 50%;
+  color: #5E6366;
+}
+
+.foto {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.upload-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+button {
+  width: 9.375rem;
+  height: 2.5rem;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0 0.9375rem;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #2c3e9d;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Media Queries */
+
+/* Tablets e telas médias */
+@media screen and (max-width: 48rem) { /* 768px */
+  .container {
+    width: 100%;
+    margin: 0.625rem auto;
+    padding: 0.9375rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  #experience {
+    width: 100%;
+  }
+
+  .form-row {
+    gap: 0.9375rem;
+  }
+}
+
+/* Smartphones e telas pequenas */
+@media screen and (max-width: 30rem) { /* 480px */
+  .form-row {
+    flex-direction: column;
+    gap: 0.9375rem;
+    margin-bottom: 0.9375rem;
+  }
+
+  .form-field {
+    margin-right: 0;
+  }
+
+  .container {
+    padding: 0.9375rem;
+    margin: 0.3125rem auto;
+  }
+
+  input, select {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  button {
+    width: 8.125rem;
+    font-size: 0.85rem;
+  }
+
+  .foto {
+    padding-top: 1.5rem;
+  }
+}
+
+/* Telas muito pequenas */
+@media screen and (max-width: 20rem) { /* 320px */
+  .container {
+    padding: 0.625rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    width: 7.5rem;
+    height: 2.1875rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Telas grandes */
+@media screen and (min-width: 75rem) { /* 1200px */
+  .container {
+    margin: 2.5rem auto;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  input, select {
+    padding: 0.75rem;
+  }
+}
+
+/* Ajuste para altura pequena */
+@media screen and (max-height: 37.5rem) { /* 600px */
+  .container {
+    margin: 0.625rem auto;
+  }
+
+  .foto {
+    padding-top: 1rem;
+  }
+
+  .button-container {
+    margin-top: 1rem;
+  }
+}

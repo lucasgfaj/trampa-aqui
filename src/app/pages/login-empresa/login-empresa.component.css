@@ -1,0 +1,147 @@
+/* Estilos base */
+#loginbutton, #cadbutton {
+  background-color: #32B796;
+  color: white;
+  border-radius: 2px;
+}
+
+.tela-login {
+  background-color: #34495E;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.login-container {
+  width: 90%;
+  max-width: 25rem;
+  margin: 6.25rem auto;
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.75rem;
+  padding: 0 1rem;
+}
+
+.login-form, .cadastro-form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.highlight {
+  color: #32B796;
+  font-weight: bold;
+}
+
+.footer-link {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.footer-link a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  .login-container {
+    width: 85%;
+    padding: 15px;
+    margin: 3rem auto;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+  }
+
+  .forgot-password, .footer-link {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .login-container {
+    width: 85%;
+    margin: 4rem auto;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .login-container {
+    width: 70%;
+    max-width: 25rem;
+    margin: 5rem auto;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-height: 600px) {
+  .login-container {
+    margin: 2rem auto;
+  }
+
+  h2 {
+    margin-top: 1rem;
+  }
+}
+
+/* Ajustes para telas muito grandes */
+@media screen and (min-width: 1440px) {
+  .login-container {
+    margin: 8rem auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Ajustes específicos para os tabs */
+::ng-deep .mat-tab-label {
+  min-width: 100px !important;
+  padding: 0 15px !important;
+}
+
+@media screen and (max-width: 480px) {
+  ::ng-deep .mat-tab-label {
+    min-width: 80px !important;
+    padding: 0 10px !important;
+    font-size: 14px;
+  }
+}
