@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { JobApiComponent } from '../job-api/job-api.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-candidato',
@@ -19,6 +21,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     ReactiveFormsModule,
     MatSelectModule,
+    JobApiComponent,
+    CommonModule
   ],
   templateUrl: './dashboard-candidato.component.html',
   styleUrls: ['./dashboard-candidato.component.css'],

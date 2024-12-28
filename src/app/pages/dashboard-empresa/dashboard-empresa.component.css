@@ -126,6 +126,22 @@ input:focus, select:focus {
   padding-top: 3.125rem;
 }
 
+/* Vagas API */
+.api-link-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.api-link {
+  background-color: #F1F1F180;
+  padding: 1.1875rem;
+  margin: 1.25rem;
+  width: 62rem;
+}
+/* Vagas API */
+
+
 /* Media Queries */
 
 /* Tablets e telas médias */
