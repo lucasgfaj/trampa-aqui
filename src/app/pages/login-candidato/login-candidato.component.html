@@ -9,7 +9,7 @@
             <form class="login-form">
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>E-mail</mat-label>
-                <input matInput type="email" placeholder="Seu e-mail" />
+                <input matInput type="email" placeholder="Seu e-mail"/>
               </mat-form-field>
       
               <mat-form-field appearance="outline" class="full-width">
@@ -31,22 +31,44 @@
           </mat-tab>
       
           <mat-tab label="Cadastre-se">
-            <form class="cadastro-form">
+            <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()"  class="cadastro-form">
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>*E-mail</mat-label>
-                <input matInput type="email" placeholder="Seu e-mail" />
+                <input matInput type="email" placeholder="Seu e-mail" formControlName="email"/>
+                <mat-error *ngIf="cadastroForm.get('email')?.hasError('required')">
+                  O e-mail é obrigatório
+                </mat-error>
+                <mat-error *ngIf="cadastroForm.get('email')?.hasError('email')">
+                  E-mail inválido
+                </mat-error>
+                <mat-error *ngIf="cadastroForm.get('email')?.hasError('pattern')">
+                  O e-mail não segue o formato correto
+                </mat-error>
               </mat-form-field>
       
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>*Senha</mat-label>
-                <input matInput type="password" placeholder="******" />
+                <input matInput type="password" placeholder="******" formControlName="senha" />
+                <mat-error *ngIf="cadastroForm.get('senha')?.hasError('required')">
+                  A senha é obrigatória
+                </mat-error>
+                <mat-error *ngIf="cadastroForm.get('senha')?.hasError('pattern')">
+                  A senha deve conter pelo menos 12 caracteres, uma letra e um número
+                </mat-error>
               </mat-form-field>
     
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>*Senha confirmação</mat-label>
-                <input matInput type="password" placeholder="******" />
+                <input matInput type="password" placeholder="******" formControlName="senhaConfirmacao"/>
+                <mat-error *ngIf="cadastroForm.get('senhaConfirmacao')?.hasError('required')">
+                  A confirmação de senha é obrigatória
+                </mat-error>
+                <mat-error *ngIf="!validarSenhas()">
+                  As senhas não correspondem
+                </mat-error>
               </mat-form-field>
-              <button id="cadbutton" mat-raised-button class="full-width">
+
+              <button id="cadbutton" mat-raised-button class="full-width" [disabled]="!cadastroForm.valid || !validarSenhas()">
                 Criar conta
               </button>
     

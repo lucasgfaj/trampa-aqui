@@ -8,15 +8,14 @@
 .tela-login {
   background-color: #34495E;
   overflow: hidden;
-  min-height: 100vh;
-  padding: 1rem;
+  min-height: 90vh;
   box-sizing: border-box;
 }
 
 .login-container {
   width: 90%;
   max-width: 25rem;
-  margin: 6.25rem auto;
+  margin: 2rem auto;
   text-align: center;
   background-color: #f7f7f7;
   padding: 20px;
@@ -31,6 +30,7 @@ h2 {
   margin-top: 2rem;
   font-size: 1.75rem;
   padding: 0 1rem;
+  margin-bottom: 0;
 }
 
 .login-form, .cadastro-form {
@@ -41,7 +41,8 @@ h2 {
 
 .full-width {
   width: 100%;
-  margin-bottom: 15px;
+  margin-top: .625rem;
+  margin-bottom: .625rem;
 }
 
 .forgot-password {
@@ -106,7 +107,7 @@ h2 {
   .login-container {
     width: 70%;
     max-width: 25rem;
-    margin: 5rem auto;
+    margin: 2rem auto;
   }
 }
 
