@@ -1,18 +1,26 @@
 {
   "users": [
     {
-      "id": "c184",
+      "name": "Lucas",
+      "cpf": "11048713932",
       "email": "lucasgontardo@hotmail.com",
-      "password": "123456",
-      "typeuser": "candidato",
-      "createdAt": "2024-12-28T02:25:00.679Z",
-      "cpf": "",
-      "phone": "",
-      "address": "",
+      "contact": "42988687941",
       "cep": "",
-      "linguages": [],
-      "experiencies": "Estágio",
-      "imageprofile": ""
+      "street": "Rua dos Jornalistas, 219",
+      "experience": "estagio",
+      "language": "TypeScript, Java",
+      "password": "123456",
+      "id": "c184"
+    },
+    {
+      "name": "Trampa Aqui",
+      "cnpj": "",
+      "email": "trampa@aqui.com",
+      "contact": "",
+      "cep": "",
+      "street": "",
+      "password": "1234567",
+      "id": "198d"
     }
   ]
 }

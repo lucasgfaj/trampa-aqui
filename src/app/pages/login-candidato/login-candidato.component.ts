@@ -32,6 +32,7 @@ export class LoginCandidatoComponent {
   // Campos de Login
   loginEmail: string = '';
   loginPassword: string = '';
+  loginId: string = '';
 
   // Campos de Cadastro
   name: string = '';
@@ -48,7 +49,7 @@ export class LoginCandidatoComponent {
   experiencies?: ExperienceLevel = ExperienceLevel.Null;
   imageprofile?: string = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   onTabChange(event: any): void {
     const selectedTabIndex = event.index;
@@ -74,11 +75,23 @@ export class LoginCandidatoComponent {
       password: this.loginPassword,
       typeuser: 'developer',
     };
-
+    
     this.userService.loginUser(user).subscribe(
       (response) => {
-        console.log('Usuário logado com sucesso:', response);
-        this.router.navigate(['/dashboard-candidato']);
+        if (response.length > 0) {
+          const loggedUser = response[0]; // Primeiro usuário encontrado
+          console.log('Usuário logado com sucesso:', loggedUser);
+    
+          if (loggedUser.id) {
+            // Salvar o ID do usuário no localStorage
+            localStorage.setItem('userId', loggedUser.id);
+            this.router.navigate(['/dashboard-candidato']);
+          } else {
+            console.error('ID do usuário não está definido.');
+          }
+        } else {
+          console.error('Nenhum usuário encontrado com as credenciais fornecidas.');
+        }
       },
       (error) => {
         console.error('Erro ao logar usuário:', error);
@@ -91,38 +104,52 @@ export class LoginCandidatoComponent {
       console.error('Preencha todos os campos de cadastro.');
       return;
     }
-
+  
     if (this.password !== this.passwordConfirm) {
       console.error('As senhas não coincidem.');
       return;
     }
-
-    const newUser: IUser = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      typeuser: 'developer',
-      createdAt: this.CreatedAt,
-      cpf: this.cpf,
-      phone: this.phone,
-      address: this.address,
-      cep: this.cep,
-      linguages: this.linguages,
-      experiencies: this.experiencies,
-      imageprofile: this.imageprofile
-    };
-
-    this.userService.createUser(newUser).subscribe(
+  
+    // Verificar se o email já está cadastrado
+    this.userService.getUserByEmail(this.email).subscribe(
       (response) => {
-        console.log('Usuário cadastrado com sucesso:', response);
-        this.email = '';
-        this.password = '';
-        this.passwordConfirm = '';
-        //Recarrega a página
-        window.location.reload();
+        if (response.length > 0) {
+          console.error('Email já está cadastrado.');
+          return; // Impede a criação do usuário
+        }
+  
+        // Criar o novo usuário se o email não estiver cadastrado
+        const newUser: IUser = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          typeuser: 'developer',
+          createdAt: this.CreatedAt,
+          cpf: this.cpf,
+          phone: this.phone,
+          address: this.address,
+          cep: this.cep,
+          linguages: this.linguages,
+          experiencies: this.experiencies,
+          imageprofile: this.imageprofile
+        };
+  
+        this.userService.createUser(newUser).subscribe(
+          (response) => {
+            console.log('Usuário cadastrado com sucesso:', response);
+            this.email = '';
+            this.password = '';
+            this.passwordConfirm = '';
+            // Recarregar a página
+            window.location.reload();
+          },
+          (error) => {
+            console.error('Erro ao cadastrar usuário:', error);
+          }
+        );
       },
       (error) => {
-        console.error('Erro ao cadastrar usuário:', error);
+        console.error('Erro ao verificar email:', error);
       }
     );
   }

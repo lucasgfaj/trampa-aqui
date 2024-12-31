@@ -1,5 +1,5 @@
 export interface IUser {
-  id?: number; // ID único do usuário
+  id?: string; // ID único do usuário
   name?: string; // Nome do usuário
   email: string; // Email do usuário
   password: string; // Senha

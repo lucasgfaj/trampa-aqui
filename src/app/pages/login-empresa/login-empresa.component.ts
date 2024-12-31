@@ -29,24 +29,24 @@ export class LoginEmpresaComponent {
   loginempresa: string = "Login como empresa";
   isCadastro: boolean = false;
 
-   // Campos de Login
-   loginEmail: string = '';
-   loginPassword: string = '';
+  // Campos de Login
+  loginEmail: string = '';
+  loginPassword: string = '';
 
-   // Campos de Cadastro
-   name: string = '';
-   email: string = '';
-   password: string = '';
-   passwordConfirm: string = '';
-   typeuser: string = 'enterprise';
-   CreatedAt?: Date = new Date();
-   cpnj?: string = '';
-   phone?: string = '';
-   address?: string = '';
-   cep?: string = '';
-   imageprofile?: string = '';
+  // Campos de Cadastro
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  passwordConfirm: string = '';
+  typeuser: string = 'enterprise';
+  CreatedAt?: Date = new Date();
+  cpnj?: string = '';
+  phone?: string = '';
+  address?: string = '';
+  cep?: string = '';
+  imageprofile?: string = '';
 
-   constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
 
   onTabChange(event: any): void {
@@ -76,8 +76,19 @@ export class LoginEmpresaComponent {
 
     this.userService.loginUser(user).subscribe(
       (response) => {
-        console.log('Usuário logado com sucesso:', response);
-        this.router.navigate(['/dashboard-empresa']);
+        if (response.length > 0) {
+          const loggedUser = response[0];
+          console.log('Usuário logado com sucesso:', loggedUser);
+
+          if (loggedUser.id) {
+            localStorage.setItem('userId', loggedUser.id);
+            this.router.navigate(['/dashboard-empresa'])
+          } else {
+            console.log('ID do usuário não está definido.');
+          }
+        } else {
+          console.error('Nenhum usuário encontrado com as credenciais fornecidas.');
+        }
       },
       (error) => {
         console.error('Erro ao logar usuário:', error);
@@ -96,32 +107,44 @@ export class LoginEmpresaComponent {
       return;
     }
 
-    const newUser: IUser = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      typeuser: 'enterprise',
-      createdAt: this.CreatedAt,
-      cnpj: this.cpnj,
-      phone: this.phone,
-      address: this.address,
-      cep: this.cep,
-      imageprofile: this.imageprofile
-    };
-
-    this.userService.createUser(newUser).subscribe(
+    this.userService.getUserByEmail(this.email).subscribe(
       (response) => {
-        console.log('Usuário cadastrado com sucesso:', response);
-        this.email = '';
-        this.password = '';
-        this.passwordConfirm = '';
-        //Recarrega a página
-        window.location.reload();
+        if (response.length > 0) {
+          console.error('Email já está cadastrado.');
+          return //Impede a criação do usuário
+        }
+        // Criar o novo usuário se o email não estiver cadastrado
+        const newUser: IUser = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          typeuser: 'enterprise',
+          createdAt: this.CreatedAt,
+          cnpj: this.cpnj,
+          phone: this.phone,
+          address: this.address,
+          cep: this.cep,
+          imageprofile: this.imageprofile
+        };
+
+        this.userService.createUser(newUser).subscribe(
+          (response) => {
+            console.log('Usuário cadastrado com sucesso:', response);
+            this.email = '';
+            this.password = '';
+            this.passwordConfirm = '';
+            //Recarrega a página
+            window.location.reload();
+          },
+          (error) => {
+            console.error('Erro ao cadastrar usuário:', error);
+          }
+        )
       },
       (error) => {
-        console.error('Erro ao cadastrar usuário:', error);
+        console.error('Erro ao verificar email:', error);
       }
     );
   }
-
 }
+

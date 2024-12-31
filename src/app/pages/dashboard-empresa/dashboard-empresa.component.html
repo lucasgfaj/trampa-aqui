@@ -7,37 +7,37 @@
   <section>
     <div class="container">
       <h2>Conta</h2>
-      <form class="form-container">
+      <form class="form-container" [formGroup]="accountForm" (ngSubmit)="onSave()">
         <div class="form-row">
           <div class="form-field">
             <label for="razao">Razão Social</label>
-            <input type="text" id="razao" placeholder="Digite a razão social">
+            <input type="text" id="name" placeholder="Digite a razão social" formControlName="name">
           </div>
           <div class="form-field">
             <label for="cnpj">CNPJ</label>
-            <input type="text" id="cnpj" placeholder="Digite seu CNPJ">
+            <input type="text" id="cnpj" placeholder="Digite seu CNPJ" formControlName="cnpj">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-field">
             <label for="email">E-mail</label>
-            <input type="email" id="email" placeholder="Digite seu e-mail">
+            <input type="email" id="email" placeholder="Digite seu e-mail" formControlName="email">
           </div>
           <div class="form-field">
             <label for="contact">Contato</label>
-            <input type="tel" id="contact" placeholder="Digite seu contato">
+            <input type="tel" id="contact" placeholder="Digite seu contato" formControlName="contact">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-field">
             <label for="cep">Endereço CEP</label>
-            <input type="text" id="cep" placeholder="Digite o CEP">
+            <input type="text" id="cep" placeholder="Digite o CEP" formControlName="cep">
           </div>
           <div class="form-field">
             <label for="street">Endereço Rua</label>
-            <input type="text" id="street" placeholder="Digite o endereço">
+            <input type="text" id="street" placeholder="Digite o endereço" formControlName="street">
           </div>
         </div>
 
@@ -45,7 +45,7 @@
 
           <div class="form-field" id="password">
             <label for="password">Senha de sua conta</label>
-            <input type="password" id="password" placeholder="********">
+            <input type="password" id="password" placeholder="********" formControlName="password">
           </div>
 
         </div>
