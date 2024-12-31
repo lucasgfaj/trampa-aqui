@@ -85,9 +85,16 @@ export class DashboardEmpresaComponent implements OnInit {
         }
       }
     }
-    
+
 
   onFileUpload(): void {
     alert('Função de upload de arquivos');
   }
+
+  secFilter: boolean = false;
+
+  toggleVisibility() {
+    this.secFilter = !this.secFilter;
+  }
+
 }
