@@ -26,6 +26,7 @@ export class LoginEmpresaComponent {
   loginempresa: string = "Login como empresa";
   isCadastro: boolean = false;
   cadastroForm: FormGroup;
+  passwordHidden: boolean = true;
 
   onTabChange(event: any): void {
     const selectedTabIndex = event.index;
@@ -59,6 +60,10 @@ export class LoginEmpresaComponent {
       ],
       senhaConfirmacao: ['', [Validators.required]],
     })
+  }
+
+  togglePasswordVisibility(inputElement: HTMLInputElement): void {
+    inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
   }
 
   validarSenhas(): boolean {

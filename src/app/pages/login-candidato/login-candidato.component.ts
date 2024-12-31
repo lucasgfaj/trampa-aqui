@@ -26,6 +26,7 @@ export class LoginCandidatoComponent {
   cadastroForm: FormGroup;
   logincandidato: string = "Login como candidato";
   isCadastro: boolean = false;
+  passwordHidden: boolean = true;
 
   onTabChange(event: any): void {
     const selectedTabIndex = event.index;
@@ -59,6 +60,10 @@ export class LoginCandidatoComponent {
       ],
       senhaConfirmacao: ['', [Validators.required]],
     })
+  }
+
+  togglePasswordVisibility(inputElement: HTMLInputElement): void {
+    inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
   }
 
   validarSenhas(): boolean {

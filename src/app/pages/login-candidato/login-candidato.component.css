@@ -111,6 +111,12 @@ h2 {
   }
 }
 
+@media screen and (min-width: 1024px){
+  .tela-login{
+    min-height: 82vh;
+  }
+}
+
 /* Ajustes para telas muito pequenas */
 @media screen and (max-height: 600px) {
   .login-container {

@@ -14,9 +14,9 @@
       
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Senha</mat-label>
-                <input matInput type="password" placeholder="******" />
-                <button mat-icon-button matSuffix tabindex="-1">
-                  <mat-icon>visibility</mat-icon>
+                <input matInput [type]="passwordHidden ? 'password' : 'text'" formControlName="senha" #passwordInput />
+                <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="passwordHidden = !passwordHidden; togglePasswordVisibility(passwordInput)">
+                  <mat-icon>{{ passwordHidden ? 'visibility' : 'visibility_off' }}</mat-icon>
                 </button>
               </mat-form-field>
       
