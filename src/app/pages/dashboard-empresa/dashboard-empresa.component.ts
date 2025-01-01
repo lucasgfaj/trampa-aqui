@@ -11,6 +11,7 @@ import { JobApiComponent } from '../job-api/job-api.component';
 import { CommonModule } from '@angular/common';
 import { IUser } from '../../interfaces/IUser';
 import { UserService } from '../../services/user.service';
+import { JobsComponent } from "../jobs/jobs.component";
 
 @Component({
   selector: 'app-dashboard-empresa',
@@ -24,8 +25,9 @@ import { UserService } from '../../services/user.service';
     ReactiveFormsModule,
     MatSelectModule,
     JobApiComponent,
-    CommonModule
-  ],
+    CommonModule,
+    JobsComponent
+],
   templateUrl: './dashboard-empresa.component.html',
   styleUrls: ['./dashboard-empresa.component.css'],
 })
@@ -90,11 +92,4 @@ export class DashboardEmpresaComponent implements OnInit {
   onFileUpload(): void {
     alert('Função de upload de arquivos');
   }
-
-  secFilter: boolean = false;
-
-  toggleVisibility() {
-    this.secFilter = !this.secFilter;
-  }
-
 }

@@ -2,13 +2,8 @@
   "users": [
     {
       "name": "Lucas",
-      "cpf": "11048713932",
       "email": "lucasgontardo@hotmail.com",
-      "contact": "42988687941",
       "cep": "",
-      "street": "Rua dos Jornalistas, 219",
-      "experience": "estagio",
-      "language": "TypeScript, Java",
       "password": "123456",
       "id": "c184"
     },
@@ -22,5 +17,8 @@
       "password": "1234567",
       "id": "198d"
     }
+  ],
+  "jobs": [
+    
   ]
 }
