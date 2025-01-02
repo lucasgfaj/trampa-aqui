@@ -25,9 +25,16 @@ export class UserService {
     return this.http.post<IUser>(`${this.apiUrl}`, user);
   }
 
-  loginUser(user: IUser) : Observable<IUser>{
-    return this.http.get<IUser>(`${this.apiUrl}?email=${user.email}&password=${user.password}`);
+  loginUser(user: IUser): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.apiUrl}?email=${user.email}&password=${user.password}`);
+  }
+  
+  getUserById(userId: string): Observable<IUser> {
+    return this.http.get<IUser>(`${this.apiUrl}/${userId}`);
   }
 
+  getUserByEmail(email: string): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.apiUrl}?email=${email}`);
+  }
 }
 

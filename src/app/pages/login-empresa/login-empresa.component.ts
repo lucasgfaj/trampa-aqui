@@ -25,22 +25,25 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class LoginEmpresaComponent {
   loginempresa: string = "Login como empresa";
   isCadastro: boolean = false;
-  cadastroForm: FormGroup;
-  passwordHidden: boolean = true;
 
-  onTabChange(event: any): void {
-    const selectedTabIndex = event.index;
+  // Campos de Login
+  loginEmail: string = '';
+  loginPassword: string = '';
 
-    if (selectedTabIndex === 0) {
-      this.loginempresa = "Login como empresa";
-      this.isCadastro = false;
-    } else if (selectedTabIndex === 1) {
-      this.loginempresa = "Cadastre-se como empresa";
-      this.isCadastro = true;
-    }
-  }
+  // Campos de Cadastro
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  passwordConfirm: string = '';
+  typeuser: string = 'enterprise';
+  CreatedAt?: Date = new Date();
+  cpnj?: string = '';
+  contact?: string = '';
+  street?: string = '';
+  cep?: string = '';
+  imageprofile?: string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { 
     this.cadastroForm = this.fb.group({
       email: [
         '',
@@ -62,9 +65,56 @@ export class LoginEmpresaComponent {
     })
   }
 
+  cadastroForm: FormGroup;
+  passwordHidden: boolean = true;
+
+  onTabChange(event: any): void {
+    const selectedTabIndex = event.index;
+
+    if (selectedTabIndex === 0) {
+      this.loginempresa = "Login como empresa";
+      this.isCadastro = false;
+    } else if (selectedTabIndex === 1) {
+      this.loginempresa = "Cadastre-se como empresa";
+      this.isCadastro = true;
+    }
+  }
+
   togglePasswordVisibility(inputElement: HTMLInputElement): void {
     inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
   }
+
+    this.userService.loginUser(user).subscribe(
+      (response) => {
+        if (response.length > 0) {
+          const loggedUser = response[0]; // Primeiro usuário encontrado
+          console.log('Usuário logado com sucesso:', loggedUser);
+  
+          if (loggedUser.id && loggedUser.typeuser) {
+            // Salvar o ID do usuário no localStorage
+            localStorage.setItem('userId', loggedUser.id);
+  
+            // Verificar o tipo de usuário
+            if (loggedUser.typeuser === 'enterprise') {
+              console.log('Usuário é um empresa.');
+              this.router.navigate(['/dashboard-empresa']);
+            } else if (loggedUser.typeuser === 'developer') {
+              console.log('Usuário é um desenvolvedor.');
+              this.router.navigate(['/dashboard-candidato']);
+            } else {
+              console.error('Tipo de usuário não reconhecido:', loggedUser.typeuser);
+            }
+          } else {
+            console.error('Dados incompletos do usuário retornados pela API.');
+          }
+        } else {
+          console.error('Nenhum usuário encontrado com as credenciais fornecidas.');
+        }
+      },
+      (error) => {
+        console.error('Erro ao logar usuário:', error);
+      }
+    );
 
   validarSenhas(): boolean {
     const senha = this.cadastroForm.get('senha')?.value;
@@ -78,5 +128,47 @@ export class LoginEmpresaComponent {
     } else {
       alert('Erro no formulário. Verifique os campos!');
     }
+
+    this.userService.getUserByEmail(this.email).subscribe(
+      (response) => {
+        if (response.length > 0) {
+          console.error('Email já está cadastrado.');
+          return //Impede a criação do usuário
+        }
+        // Criar o novo usuário se o email não estiver cadastrado
+        const newUser: IUser = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          typeuser: 'enterprise',
+          createdAt: this.CreatedAt,
+          cnpj: this.cpnj,
+          contact: this.contact,
+          street: this.street,
+          cep: this.cep,
+          imageprofile: this.imageprofile
+        };
+
+        this.userService.createUser(newUser).subscribe(
+          (response) => {
+            console.log('Usuário cadastrado com sucesso:', response);
+            this.email = '';
+            this.password = '';
+            this.passwordConfirm = '';
+            //Recarrega a página
+            window.location.reload();
+          },
+          (error) => {
+            console.error('Erro ao cadastrar usuário:', error);
+          }
+        )
+      },
+      (error) => {
+        console.error('Erro ao verificar email:', error);
+      }
+    );
+  }
+}
+
   }
 }

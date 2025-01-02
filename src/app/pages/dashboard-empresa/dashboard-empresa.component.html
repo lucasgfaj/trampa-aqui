@@ -1,141 +1,69 @@
-<div class="container">
-    <h2>Conta</h2>
-    <form class="form-container">
-      <div class="form-row">
-        <div class="form-field">
-          <label for="razao">Razão Social</label>
-          <input type="text" id="razao" placeholder="Digite a razão social">
-        </div>
-        <div class="form-field">
-          <label for="cnpj">CNPJ</label>
-          <input type="text" id="cnpj" placeholder="Digite seu CNPJ">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="Digite seu e-mail">
-        </div>
-        <div class="form-field">
-          <label for="contact">Contato</label>
-          <input type="tel" id="contact" placeholder="Digite seu contato">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-field">
-          <label for="cep">Endereço CEP</label>
-          <input type="text" id="cep" placeholder="Digite o CEP">
-        </div>
-        <div class="form-field">
-          <label for="street">Endereço Rua</label>
-          <input type="text" id="street" placeholder="Digite o endereço">
-        </div>
-      </div>
-
-      <div class="form-row">
-
-        <div class="form-field" id="password">
-            <label for="password">Senha de sua conta</label>
-            <input type="password" id="password" placeholder="********">
+<main>
+  <section class="api-link-section">
+    <div class="api-link">
+      <app-job-api></app-job-api>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h2>Conta</h2>
+      <form class="form-container" [formGroup]="accountForm" (ngSubmit)="onSave()">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="razao">Razão Social</label>
+            <input type="text" id="name" placeholder="Digite a razão social" formControlName="name">
           </div>
-        
-      </div>
+          <div class="form-field">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" id="cnpj" placeholder="Digite seu CNPJ" formControlName="cnpj">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" formControlName="email">
+          </div>
+          <div class="form-field">
+            <label for="contact">Contato</label>
+            <input type="tel" id="contact" placeholder="Digite seu contato" formControlName="contact">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cep">Endereço CEP</label>
+            <input type="text" id="cep" placeholder="Digite o CEP" formControlName="cep">
+          </div>
+          <div class="form-field">
+            <label for="street">Endereço Rua</label>
+            <input type="text" id="street" placeholder="Digite o endereço" formControlName="street">
+          </div>
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-field" id="password">
+            <label for="password">Senha de sua conta</label>
+            <input type="password" id="password" placeholder="********" formControlName="password">
+          </div>
+
+        </div>
 
 
-      <div class="foto">
-        <p>Foto de perfil</p>
-      </div>
-      
-      <div class="upload-section">
-        <button type="button" class="button">📎 Escolher arquivo</button>
-      </div>
+        <div class="foto">
+          <p>Foto de perfil</p>
+        </div>
 
-      <div class="button-container">
-        <button type="submit" class="button">Salvar</button>
-      </div>
-    </form>
-  </div>
+        <div class="upload-section">
+          <button type="button" class="button">📎 Escolher arquivo</button>
+        </div>
 
-  <div class="container">
-    <h2>Criar Vaga</h2>
-    <form class="form-container">
-      <div class="form-row">
-        <div class="form-field">
-          <label for="nome-vaga">Nome da Vaga</label>
-          <input type="text" id="razao" placeholder="Digite o nome da vaga">
+        <div class="button-container">
+          <button type="submit" class="button">Salvar</button>
         </div>
-        <div class="form-field">
-            <label for="tipo-empresa" class="select">Tipo de empresa</label>
-            <select id="tipo-empresa">
-              <option value="startup">Start-Up</option>
-              <option value="pequeno">Pequeno porte</option>
-              <option value="medio">Médio porte</option>
-              <option value="grande">Grande porte</option>
-            </select>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-field">
-          <label for="salario">Salário</label>
-          <input type="text" id="salario" placeholder="Digite o salário">
-        </div>
-        <div class="form-field">
-            <label for="tipo-vaga" class="select">Tipo de empresa</label>
-            <select id="tipo-vaga">
-              <option value="remota">Remota</option>
-              <option value="hibrida">Híbrida</option>
-              <option value="presencial">Presencial</option>
-            </select>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-field">
-            <label for="experience" class="select">Tipo de empresa</label>
-            <select id="experience">
-              <option value="estagio">Estágio</option>
-              <option value="junior">Júnior</option>
-              <option value="pleno">Pleno</option>
-              <option value="senior">Sênior</option>
-            </select>
-        </div>
-        <div class="form-field">
-            <label for="mudanca" class="select">Disponibilidade de Locomoção</label>
-            <select id="mudanca">
-              <option value="1">Aceita candidatos dispostos a se mudar</option>
-              <option value="2">Aceita candidatos morando em outros lugares</option>
-              <option value="3">Somente aceita candidatos que moram na sede</option>
-            </select>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-field">
-            <label for="contratacao" class="select">Tipo de contratação</label>
-            <select id="contratacao">
-              <option value="clt">CLT</option>
-              <option value="contrato">Contrato</option>
-              <option value="pj">PJ</option>
-              <option value="temporaria">Temporária</option>
-            </select>
-        </div>
-        <div class="form-field">
-            <label for="requisitos" class="select">Requisitos</label>
-            <select id="requisitos">
-              <option value="php">PHP</option>
-              <option value="javascript">Javascript</option>
-              <option value="python">Python</option>
-              <option value="java">Java</option>
-            </select>
-        </div>
-      </div>
-
-      <div class="button-container">
-        <button type="reset" class="cancel-button">Cancelar</button>
-        <button type="submit" class="button">Cadastrar Vaga</button>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
+  </section>
+  <app-jobs></app-jobs>
+</main>
