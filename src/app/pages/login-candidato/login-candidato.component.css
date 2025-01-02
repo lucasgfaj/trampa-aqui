@@ -8,15 +8,14 @@
 .tela-login {
   background-color: #34495E;
   overflow: hidden;
-  min-height: 100vh;
-  padding: 1rem;
+  min-height: 90vh;
   box-sizing: border-box;
 }
 
 .login-container {
   width: 90%;
   max-width: 25rem;
-  margin: 6.25rem auto;
+  margin: 2rem auto;
   text-align: center;
   background-color: #f7f7f7;
   padding: 20px;
@@ -31,6 +30,7 @@ h2 {
   margin-top: 2rem;
   font-size: 1.75rem;
   padding: 0 1rem;
+  margin-bottom: 0;
 }
 
 .login-form, .cadastro-form {
@@ -41,7 +41,8 @@ h2 {
 
 .full-width {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: .625rem;
+  margin-top: .625rem;
 }
 
 .forgot-password {
@@ -72,7 +73,7 @@ h2 {
 /* Media Queries */
 @media screen and (max-width: 480px) {
   .login-container {
-    width: 85%;
+    width: 80%;
     padding: 15px;
   }
 
@@ -88,6 +89,7 @@ h2 {
   .forgot-password, .footer-link {
     font-size: 0.85rem;
   }
+
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -105,7 +107,13 @@ h2 {
   .login-container {
     width: 70%;
     max-width: 25rem;
-    margin: 5rem auto;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .tela-login{
+    min-height: 82vh;
   }
 }
 
