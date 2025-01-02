@@ -1,24 +1,75 @@
 {
   "users": [
     {
-      "name": "Lucas",
-      "email": "lucasgontardo@hotmail.com",
-      "cep": "",
-      "password": "123456",
-      "id": "c184"
-    },
-    {
+      "id": "ce55",
       "name": "Trampa Aqui",
-      "cnpj": "",
       "email": "trampa@aqui.com",
-      "contact": "",
-      "cep": "",
-      "street": "",
-      "password": "1234567",
-      "id": "198d"
+      "password": "1234",
+      "typeuser": "enterprise",
+      "createdAt": "2025-01-02T13:04:28.520Z",
+      "cnpj": "32132131222",
+      "cep": "321312",
+      "imageprofile": "",
+      "contact": "312321",
+      "street": "Rua dos Jornalistas, 219"
     }
   ],
   "jobs": [
-    
+    {
+      "id": "de8f",
+      "nameJob": "Desenvolvedor Jr.",
+      "salary": "1000",
+      "typeEnterprise": "Pequeno porte",
+      "typeJob": "Remoto",
+      "typeContract": "Júnior",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "Perl",
+      "createdAt": "2025-01-02T22:09:38.697Z",
+      "selectCandidate": [],
+      "userId": "ce55",
+      "status": "excluida"
+    },
+    {
+      "id": "3318",
+      "nameJob": "Desenvolvedor Jr.",
+      "salary": "1000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Híbrido",
+      "typeContract": "Estágio",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "HTML",
+      "createdAt": "2025-01-02T22:15:23.169Z",
+      "selectCandidate": [],
+      "userId": "ce55",
+      "status": "excluida"
+    },
+    {
+      "id": "ab8e",
+      "nameJob": "Desenvolvedor Jr.",
+      "salary": "1000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Remoto",
+      "typeContract": "Estágio",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "Go",
+      "createdAt": "2025-01-02T22:24:41.915Z",
+      "selectCandidate": [],
+      "userId": "ce55",
+      "status": "aberta"
+    },
+    {
+      "id": "9d33",
+      "nameJob": "Desenvolvedor Jr.",
+      "salary": "1000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Remoto",
+      "typeContract": "Estágio",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "Rust",
+      "createdAt": "2025-01-02T22:26:19.258Z",
+      "selectCandidate": [],
+      "userId": "ce55",
+      "status": "excluida"
+    }
   ]
 }

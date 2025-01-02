@@ -6,8 +6,8 @@ export interface IUser {
   typeuser: string; // Tipo de usuário (exemplo: candidato ou empresa)
   createdAt?: Date; // Data de criação do usuário
   cpf?: string; // CPF do usuário
-  phone?: string; // Telefone do usuário
-  address?: string; // Endereço do usuário
+  contact?: string; // Telefone do usuário
+  street?: string; // Endereço do usuário
   cep?: string; // CEP do usuário
   linguages?: ProgrammingLanguages[]; // Linguagens de programação
   experiencies?: ExperienceLevel; // Nível de experiência
@@ -17,20 +17,38 @@ export interface IUser {
 
 // Enumerado para linguagens de programação
 export enum ProgrammingLanguages {
-  TypeScript = 'TypeScript',
-  JavaScript = 'JavaScript',
-  Python = 'Python',
-  Java = 'Java',
-  CSharp = 'C#',
-  PHP = 'PHP',
-  Ruby = 'Ruby',
-  Go = 'Go',
-  Swift = 'Swift',
-  Kotlin = 'Kotlin',
-  CPlusPlus = 'C++',
-  Rust = 'Rust',
-  Dart = 'Dart',
-  Other = 'Outras'
+  javascript = 'JavaScript',
+  typescript = 'TypeScript',
+  python = 'Python',
+  java = 'Java',
+  csharp = 'C#',
+  cpp = 'C++',
+  ruby = 'Ruby',
+  swift = 'Swift',
+  kotlin = 'Kotlin',
+  go = 'Go',
+  rust = 'Rust',
+  dart = 'Dart',
+  scala = 'Scala',
+  perl = 'Perl',
+  html = 'HTML',
+  css = 'CSS',
+  sql = 'SQL',
+  bash = 'Bash',
+  shell = 'Shell',
+  r = 'R',
+  matlab = 'MATLAB',
+  assembly = 'Assembly',
+  fortran = 'Fortran',
+  cobol = 'COBOL',
+  vbnet = 'VB.NET',
+  groovy = 'Groovy',
+  lua = 'Lua',
+  pascal = 'Pascal',
+  delphi = 'Delphi',
+  powershell = 'PowerShell',
+  clojure = 'Clojure',
+  objectivec = 'Objective-C'
 }
 
 // Enumerado para nível de experiência

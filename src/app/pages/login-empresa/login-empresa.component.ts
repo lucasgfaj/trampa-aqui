@@ -41,8 +41,8 @@ export class LoginEmpresaComponent {
   typeuser: string = 'enterprise';
   CreatedAt?: Date = new Date();
   cpnj?: string = '';
-  phone?: string = '';
-  address?: string = '';
+  contact?: string = '';
+  street?: string = '';
   cep?: string = '';
   imageprofile?: string = '';
 
@@ -77,14 +77,25 @@ export class LoginEmpresaComponent {
     this.userService.loginUser(user).subscribe(
       (response) => {
         if (response.length > 0) {
-          const loggedUser = response[0];
+          const loggedUser = response[0]; // Primeiro usuário encontrado
           console.log('Usuário logado com sucesso:', loggedUser);
-
-          if (loggedUser.id) {
+  
+          if (loggedUser.id && loggedUser.typeuser) {
+            // Salvar o ID do usuário no localStorage
             localStorage.setItem('userId', loggedUser.id);
-            this.router.navigate(['/dashboard-empresa'])
+  
+            // Verificar o tipo de usuário
+            if (loggedUser.typeuser === 'enterprise') {
+              console.log('Usuário é um empresa.');
+              this.router.navigate(['/dashboard-empresa']);
+            } else if (loggedUser.typeuser === 'developer') {
+              console.log('Usuário é um desenvolvedor.');
+              this.router.navigate(['/dashboard-candidato']);
+            } else {
+              console.error('Tipo de usuário não reconhecido:', loggedUser.typeuser);
+            }
           } else {
-            console.log('ID do usuário não está definido.');
+            console.error('Dados incompletos do usuário retornados pela API.');
           }
         } else {
           console.error('Nenhum usuário encontrado com as credenciais fornecidas.');
@@ -121,8 +132,8 @@ export class LoginEmpresaComponent {
           typeuser: 'enterprise',
           createdAt: this.CreatedAt,
           cnpj: this.cpnj,
-          phone: this.phone,
-          address: this.address,
+          contact: this.contact,
+          street: this.street,
           cep: this.cep,
           imageprofile: this.imageprofile
         };

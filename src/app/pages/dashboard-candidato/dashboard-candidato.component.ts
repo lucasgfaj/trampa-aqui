@@ -58,9 +58,9 @@ export class DashboardCandidatoComponent implements OnInit {
             name: user.name,
             cpf: user.cpf,
             email: user.email,
-            contact: user.phone,
+            contact: user.contact,
             cep: user.cep,
-            street: user.address,
+            street: user.street,
             experience: user.experiencies,
             language: user.linguages?.join(', '), // Convertendo array para string
             password: user.password,
@@ -77,23 +77,40 @@ export class DashboardCandidatoComponent implements OnInit {
 
   onSave(): void {
     if (this.accountForm.valid) {
-      const updatedUser: IUser = this.accountForm.value;
       const userId = localStorage.getItem('userId');
       if (userId) {
-        updatedUser.id = userId; // Definir o ID para atualização
-        this.userService.updateUser(updatedUser).subscribe(
-          (response) => {
-            console.log('Usuário atualizado com sucesso:', response);
+        // Buscar o usuário atual para combinar os valores
+        this.userService.getUserById(userId).subscribe(
+          (currentUser: IUser) => {
+            const updatedValues = this.accountForm.value;
+  
+            // Combinar os valores do formulário com os valores existentes
+            const updatedUser: IUser = {
+              ...currentUser, // Valores atuais
+              ...updatedValues, // Valores do formulário (substituem os existentes apenas se preenchidos)
+            };
+  
+            // Atualizar o usuário
+            this.userService.updateUser(updatedUser).subscribe(
+              (response) => {
+                console.log('Usuário atualizado com sucesso:', response);
+              },
+              (error) => {
+                console.error('Erro ao atualizar o usuário:', error);
+              }
+            );
           },
           (error) => {
-            console.error('Erro ao atualizar o usuário:', error);
+            console.error('Erro ao buscar os dados do usuário:', error);
           }
         );
+      } else {
+        console.warn('Nenhum ID de usuário encontrado no localStorage.');
       }
     }
   }
-  
+
   onFileUpload(): void {
     alert('Função de upload de arquivos');
   }
-}
+}  

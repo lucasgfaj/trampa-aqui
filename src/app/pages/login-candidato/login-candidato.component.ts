@@ -42,8 +42,8 @@ export class LoginCandidatoComponent {
   typeuser: string = 'developer';
   CreatedAt?: Date = new Date();
   cpf?: string = '';
-  phone?: string = '';
-  address?: string = '';
+  contact?: string = '';
+  street?: string = '';
   cep?: string = '';
   linguages?: ProgrammingLanguages[] = [];
   experiencies?: ExperienceLevel = ExperienceLevel.Null;
@@ -69,25 +69,35 @@ export class LoginCandidatoComponent {
       return;
     }
     console.log('Logando com:', { email: this.loginEmail, password: this.loginPassword });
-
+  
     const user: IUser = {
       email: this.loginEmail,
       password: this.loginPassword,
-      typeuser: 'developer',
+      typeuser: 'developer', // Ajuste se necessário
     };
-    
+  
     this.userService.loginUser(user).subscribe(
       (response) => {
         if (response.length > 0) {
           const loggedUser = response[0]; // Primeiro usuário encontrado
           console.log('Usuário logado com sucesso:', loggedUser);
-    
-          if (loggedUser.id) {
+  
+          if (loggedUser.id && loggedUser.typeuser) {
             // Salvar o ID do usuário no localStorage
             localStorage.setItem('userId', loggedUser.id);
-            this.router.navigate(['/dashboard-candidato']);
+  
+            // Verificar o tipo de usuário
+            if (loggedUser.typeuser === 'developer') {
+              console.log('Usuário é um desenvolvedor.');
+              this.router.navigate(['/dashboard-candidato']);
+            } else if (loggedUser.typeuser === 'enterprise') {
+              console.log('Usuário é uma empresa.');
+              this.router.navigate(['/dashboard-empresa']);
+            } else {
+              console.error('Tipo de usuário não reconhecido:', loggedUser.typeuser);
+            }
           } else {
-            console.error('ID do usuário não está definido.');
+            console.error('Dados incompletos do usuário retornados pela API.');
           }
         } else {
           console.error('Nenhum usuário encontrado com as credenciais fornecidas.');
@@ -126,8 +136,8 @@ export class LoginCandidatoComponent {
           typeuser: 'developer',
           createdAt: this.CreatedAt,
           cpf: this.cpf,
-          phone: this.phone,
-          address: this.address,
+          contact: this.contact,
+          street: this.street,
           cep: this.cep,
           linguages: this.linguages,
           experiencies: this.experiencies,

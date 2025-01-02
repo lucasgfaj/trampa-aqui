@@ -1,187 +1,135 @@
 <section>
-    <div class="container">
-      <h2>Criar Vaga</h2>
-      <form class="form-container">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="nome-vaga">Nome da Vaga</label>
-            <input type="text" id="razao" placeholder="Digite o nome da vaga">
-          </div>
-          <div class="form-field">
-            <label for="tipo-empresa" class="select">Tipo de empresa</label>
-            <select id="tipo-empresa">
-              <option value="startup">Start-Up</option>
-              <option value="pequeno">Pequeno porte</option>
-              <option value="medio">Médio porte</option>
-              <option value="grande">Grande porte</option>
-            </select>
-          </div>
+  <div class="container">
+    <h2>Criar Vaga</h2>
+    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="form-container">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="nome-vaga">Nome da Vaga</label>
+          <input formControlName="nameJob" type="text" id="nome-vaga" placeholder="Digite o nome da vaga" />
         </div>
+        <div class="form-field">
+          <label for="tipo-empresa">Tipo de empresa</label>
+          <select formControlName="typeEnterprise" id="tipo-empresa">
+            <option *ngFor="let type of enterpriseTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="salario">Salário</label>
-            <input type="text" id="salario" placeholder="Digite o salário">
-          </div>
-          <div class="form-field">
-            <label for="tipo-vaga" class="select">Tipo de empresa</label>
-            <select id="tipo-vaga">
-              <option value="remota">Remota</option>
-              <option value="hibrida">Híbrida</option>
-              <option value="presencial">Presencial</option>
-            </select>
-          </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="salario">Salário</label>
+          <input formControlName="salary" type="text" id="salario" placeholder="Digite o salário" />
         </div>
+        <div class="form-field">
+          <label for="tipo-vaga">Tipo de Vaga</label>
+          <select formControlName="typeJob" id="tipo-vaga">
+            <option *ngFor="let type of jobTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="experience" class="select">Tipo de empresa</label>
-            <select id="experience">
-              <option value="estagio">Estágio</option>
-              <option value="junior">Júnior</option>
-              <option value="pleno">Pleno</option>
-              <option value="senior">Sênior</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="mudanca" class="select">Disponibilidade de Locomoção</label>
-            <select id="mudanca">
-              <option value="1">Aceita candidatos dispostos a se mudar</option>
-              <option value="2">Aceita candidatos morando em outros lugares</option>
-              <option value="3">Somente aceita candidatos que moram na sede</option>
-            </select>
-          </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="tipo-contrato">Tipo de Contratação</label>
+          <select formControlName="typeContract" id="tipo-contrato">
+            <option *ngFor="let type of contractTypes" [value]="type">{{ type }}</option>
+          </select>
         </div>
+        <div class="form-field">
+          <label for="disp-locomoção">Disponibilidade de Locomoção</label>
+          <select formControlName="dispobilityLocation" id="disp-locomoção">
+            <option *ngFor="let type of locationTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="contratacao" class="select">Tipo de contratação</label>
-            <select id="contratacao">
-              <option value="clt">CLT</option>
-              <option value="contrato">Contrato</option>
-              <option value="pj">PJ</option>
-              <option value="temporaria">Temporária</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="requisitos" class="select">Requisitos</label>
-            <select id="requisitos">
-              <option value="php">PHP</option>
-              <option value="javascript">Javascript</option>
-              <option value="python">Python</option>
-              <option value="java">Java</option>
-            </select>
-          </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="requisitos">Requisitos</label>
+          <select formControlName="requiredLanguage" id="requisitos">
+            <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="button-container">
-          <button type="reset" class="cancel-button">Cancelar</button>
-          <button type="submit" class="button">Cadastrar Vaga</button>
-        </div>
-      </form>
-    </div>
-  </section>
+      <div class="button-container">
+        <button type="button" class="cancel-button" (click)="onReset()">Cancelar</button>
+        <button type="submit" class="button">Cadastrar Vaga</button>
+      </div>
+    </form>
+  </div>
+</section>
 
-  <section class="container">
-    <h2>Vagas Abertas</h2>
-    <div class="container-div">
-      <div class="title-jobs">
-        <h2>Full Stack - Trampa Aqui </h2>
-        <button *ngIf="!secFilter" (click)="toggleVisibility()">
-          <span class="iconify" data-icon="tabler:chevron-down" data-inline="false"></span>
-        </button>
-        <button *ngIf="secFilter" (click)="toggleVisibility()">
-          <span class="iconify" data-icon="tabler:chevron-up" data-inline="false"></span>
-        </button>
-      </div>      <form class="form-container" *ngIf="secFilter">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="nome-vaga">Nome da Vaga</label>
-            <input type="text" id="razao" placeholder="Digite o nome da vaga">
-          </div>
-          <div class="form-field">
-            <label for="tipo-empresa" class="select">Tipo de empresa</label>
-            <select id="tipo-empresa">
-              <option value="startup">Start-Up</option>
-              <option value="pequeno">Pequeno porte</option>
-              <option value="medio">Médio porte</option>
-              <option value="grande">Grande porte</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="salario">Salário</label>
-            <input type="text" id="salario" placeholder="Digite o salário">
-          </div>
-          <div class="form-field">
-            <label for="tipo-vaga" class="select">Tipo de Trabalho</label>
-            <select id="tipo-vaga">
-              <option value="remoto">Remoto</option>
-              <option value="hibrido">Híbrido</option>
-              <option value="presencial">Presencial</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="experience" class="select">Experiência</label>
-            <select id="experience">
-              <option value="estagio">Estágio</option>
-              <option value="junior">Júnior</option>
-              <option value="pleno">Pleno</option>
-              <option value="senior">Sênior</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="mudanca" class="select">Disponibilidade de Locomoção</label>
-            <select id="mudanca">
-              <option value="option1">Aceita candidatos dispostos a se mudar</option>
-              <option value="option2">Aceita candidatos morando em outros lugares</option>
-              <option value="option3">Somente aceita candidatos que moram na sede</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="contratacao" class="select">Tipo de contratação</label>
-            <select id="contratacao">
-              <option value="clt">CLT</option>
-              <option value="contrato">Contrato</option>
-              <option value="pj">PJ</option>
-              <option value="temporaria">Temporária</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="requisitos" class="select">Requisitos</label>
-            <select id="requisitos">
-              <option value="php">PHP</option>
-              <option value="javascript">Javascript</option>
-              <option value="python">Python</option>
-              <option value="java">Java</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="contratacao" class="select">Candidato Escolhido</label>
-            <select id="contratacao">
-              <option value="candidate"></option>
-            </select>
-          </div>
-          <div class="form-field">
-          </div>
-        </div>
-
-        <div class="button-container">
-          <button type="reset" class="cancel-button">Excluir Vaga</button>
-          <button type="submit" class="button">Finalizar Vaga</button>
-        </div>
-      </form>
+<section class="container">
+  <h2>Vagas Abertas</h2>
+  <div *ngFor="let job of jobs" class="container-div">
+    <div class="title-jobs">
+      <h2>{{ job.nameJob }}</h2>
+      <button (click)="toggleVisibility(job.id)">
+        <span class="iconify" [attr.data-icon]="isVisible(job.id) ? 'tabler:chevron-up' : 'tabler:chevron-down'"></span>
+      </button>
     </div>
 
-  </section>
+    <form class="form-container" *ngIf="isVisible(job.id)">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="nome-vaga">Nome da Vaga</label>
+          <input type="text" [(ngModel)]="job.nameJob" name="nameJob">
+        </div>
+        <div class="form-field">
+          <label for="tipo-empresa" class="select">Tipo de empresa</label>
+          <select [(ngModel)]="job.typeEnterprise" name="typeEnterprise">
+            <option *ngFor="let type of enterpriseTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="salario">Salário</label>
+          <input type="text" [(ngModel)]="job.salary" name="salary">
+        </div>
+        <div class="form-field">
+          <label for="tipo-vaga" class="select">Tipo de Trabalho</label>
+          <select [(ngModel)]="job.typeJob" name="typeJob">
+            <option *ngFor="let type of jobTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="mudanca" class="select">Disponibilidade de Locomoção</label>
+          <select [(ngModel)]="job.dispobilityLocation" name="dispobilityLocation">
+            <option *ngFor="let location of locationTypes" [value]="location">{{ location }}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="experience" class="select">Tipo de Contratação</label>
+          <select [(ngModel)]="job.typeContract" name="typeContract">
+            <option *ngFor="let level of contractTypes" [value]="level">{{ level }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="requisitos" class="select">Requisitos</label>
+          <select [(ngModel)]="job.requiredLanguage" name="requiredLanguage">
+            <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="contratacao" class="select">Candidato Escolhido</label>
+          <select [(ngModel)]="job.selectCandidate" name="selectCandidate">
+            <option *ngFor="let candidate of job.selectCandidate" [value]="candidate">{{ candidate }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="button" class="cancel-button" (click)="deleteJob(job.id)">Excluir Vaga</button>
+        <button type="button" class="button" (click)="finalizeJob(job)">Finalizar Vaga</button>
+      </div>
+    </form>
+  </div>
+</section>
