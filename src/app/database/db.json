@@ -12,6 +12,34 @@
       "imageprofile": "",
       "contact": "312321",
       "street": "Rua dos Jornalistas, 219"
+    },
+    {
+      "id": "164e",
+      "name": "Lucas",
+      "email": "serjo123@gmail.com",
+      "password": "123",
+      "typeuser": "enterprise",
+      "createdAt": "2025-01-02T23:18:38.424Z",
+      "cnpj": "32132131222",
+      "contact": "",
+      "street": "",
+      "cep": "",
+      "imageprofile": ""
+    },
+    {
+      "id": "4e0c",
+      "name": "",
+      "email": "lucasgontardo@hotmail.com",
+      "password": "123",
+      "typeuser": "developer",
+      "createdAt": "2025-01-02T23:25:52.372Z",
+      "cpf": "",
+      "contact": "",
+      "street": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Não informado",
+      "imageprofile": ""
     }
   ],
   "jobs": [
@@ -69,6 +97,20 @@
       "createdAt": "2025-01-02T22:26:19.258Z",
       "selectCandidate": [],
       "userId": "ce55",
+      "status": "excluida"
+    },
+    {
+      "id": "1a0c",
+      "nameJob": "Desenvolvedor Jr.",
+      "salary": "13213",
+      "typeEnterprise": "Pequeno porte",
+      "typeJob": "Híbrido",
+      "typeContract": "Júnior",
+      "dispobilityLocation": "Não informado",
+      "requiredLanguage": "HTML",
+      "createdAt": "2025-01-02T23:20:01.235Z",
+      "selectCandidate": [],
+      "userId": "164e",
       "status": "excluida"
     }
   ]
