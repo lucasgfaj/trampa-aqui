@@ -1,61 +1,83 @@
 <div class="tela-login">
-  <h2>
-    {{ logincandidato.substring(0, logincandidato.lastIndexOf(' ')) }}
+    <h2>
+      {{ logincandidato.substring(0, logincandidato.lastIndexOf(' ')) }}
     <span [class.highlight]="isCadastro">Candidato</span>
-  </h2>
-  <div class="login-container">
-    <mat-tab-group (selectedTabChange)="onTabChange($event)">
-      <mat-tab label="Log In">
-        <form class="login-form">
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" [(ngModel)]="loginEmail" [ngModelOptions]="{standalone: true}" />
-          </mat-form-field>
+    </h2>
+    <div class="login-container">
+      <mat-tab-group (selectedTabChange)="onTabChange($event)">
+          <mat-tab label="Log In">
+            <form class="login-form">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" placeholder="Seu e-mail"/>
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="passwordHidden ? 'password' : 'text'" formControlName="senha" #passwordInput />
+                <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="passwordHidden = !passwordHidden; togglePasswordVisibility(passwordInput)">
+                  <mat-icon>{{ passwordHidden ? 'visibility' : 'visibility_off' }}</mat-icon>
+                </button>
+              </mat-form-field>
+      
+              <div class="forgot-password">
+                <a href="#">Esqueceu sua senha?</a>
+              </div>
+      
+              <button id="loginbutton" mat-raised-button class="full-width">
+                Login
+              </button>
+            </form>
+          </mat-tab>
+      
+          <mat-tab label="Cadastre-se">
+            <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()"  class="cadastro-form">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>*E-mail</mat-label>
+                <input matInput type="email" placeholder="Seu e-mail" formControlName="email"/>
+                <mat-error *ngIf="cadastroForm.get('email')?.hasError('required')">
+                  O e-mail é obrigatório
+                </mat-error>
+                <mat-error *ngIf="cadastroForm.get('email')?.hasError('email')">
+                  E-mail inválido
+                </mat-error>
+                <mat-error *ngIf="cadastroForm.get('email')?.hasError('pattern')">
+                  O e-mail não segue o formato correto
+                </mat-error>
+              </mat-form-field>
+      
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>*Senha</mat-label>
+                <input matInput type="password" placeholder="******" formControlName="senha" />
+                <mat-error *ngIf="cadastroForm.get('senha')?.hasError('required')">
+                  A senha é obrigatória
+                </mat-error>
+                <mat-error *ngIf="cadastroForm.get('senha')?.hasError('pattern')">
+                  A senha deve conter pelo menos 12 caracteres, uma letra e um número
+                </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>*Senha confirmação</mat-label>
+                <input matInput type="password" placeholder="******" formControlName="senhaConfirmacao"/>
+                <mat-error *ngIf="cadastroForm.get('senhaConfirmacao')?.hasError('required')">
+                  A confirmação de senha é obrigatória
+                </mat-error>
+                <mat-error *ngIf="!validarSenhas()">
+                  As senhas não correspondem
+                </mat-error>
+              </mat-form-field>
 
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="******" [(ngModel)]="loginPassword" [ngModelOptions]="{standalone: true}" />
-            <button mat-icon-button matSuffix tabindex="-1">
-              <mat-icon>visibility</mat-icon>
-            </button>
-          </mat-form-field>
-
-          <div class="forgot-password">
-            <a href="#">Esqueceu sua senha?</a>
-          </div>
-
-          <button id="loginbutton" mat-raised-button class="full-width" (click)="onLogin()">
-            Login
-          </button>
-        </form>
-      </mat-tab>
-
-      <mat-tab label="Cadastre-se">
-        <form class="cadastro-form">
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>*E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>*Senha</mat-label>
-            <input matInput type="password" placeholder="******" name="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>*Confirmação de Senha</mat-label>
-            <input matInput type="password" placeholder="******" name="passwordConfirm" [(ngModel)]="passwordConfirm" [ngModelOptions]="{standalone: true}" />
-          </mat-form-field>
-
-          <button id="cadbutton" mat-raised-button class="full-width" (click)="onSubmit()">
-            Criar conta
-          </button>
-        </form>
-      </mat-tab>
-    </mat-tab-group>
-
-    <div class="footer-link">
-      <a href="/login-empresa">Eu sou uma empresa</a>
-    </div>
-  </div>
+              <button id="cadbutton" mat-raised-button class="full-width" [disabled]="!cadastroForm.valid || !validarSenhas()">
+                Criar conta
+              </button>
+    
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      
+        <div class="footer-link">
+          <a href="/login-empresa">Eu sou uma empresa</a>
+        </div>
+    </div>    
 </div>

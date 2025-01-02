@@ -9,14 +9,14 @@
         <form class="login-form">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" [(ngModel)]="loginEmail" [ngModelOptions]="{standalone: true}" />
+            <input matInput type="email" placeholder="Seu e-mail" />
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="******" [(ngModel)]="loginPassword" [ngModelOptions]="{standalone: true}" />
-            <button mat-icon-button matSuffix tabindex="-1">
-              <mat-icon>visibility</mat-icon>
+            <input matInput [type]="passwordHidden ? 'password' : 'text'" formControlName="senha" #passwordInput />
+            <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="passwordHidden = !passwordHidden; togglePasswordVisibility(passwordInput)">
+              <mat-icon>{{ passwordHidden ? 'visibility' : 'visibility_off' }}</mat-icon>
             </button>
           </mat-form-field>
 
@@ -24,29 +24,51 @@
             <a href="#">Esqueceu sua senha?</a>
           </div>
 
-          <button id="loginbutton" mat-raised-button class="full-width" (click)="onLogin()">
+          <button id="loginbutton" mat-raised-button class="full-width">
             Login
           </button>
         </form>
       </mat-tab>
 
       <mat-tab label="Cadastre-se">
-        <form class="cadastro-form">
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()"  class="cadastro-form">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*E-mail</mat-label>
-            <input matInput type="email" placeholder="Seu e-mail" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" />
+            <input matInput type="email" placeholder="Seu e-mail" formControlName="email"/>
+            <mat-error *ngIf="cadastroForm.get('email')?.hasError('required')">
+              O e-mail é obrigatório
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('email')?.hasError('email')">
+              E-mail inválido
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('email')?.hasError('pattern')">
+              O e-mail não segue o formato correto
+            </mat-error>
           </mat-form-field>
-
+  
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*Senha</mat-label>
-            <input matInput type="password" placeholder="******"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
+            <input matInput type="password" placeholder="******" formControlName="senha" />
+            <mat-error *ngIf="cadastroForm.get('senha')?.hasError('required')">
+              A senha é obrigatória
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('senha')?.hasError('pattern')">
+              A senha deve conter pelo menos 12 caracteres, uma letra e um número
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>*Senha confirmação</mat-label>
-            <input matInput type="password" placeholder="******" [(ngModel)]="passwordConfirm" [ngModelOptions]="{standalone: true}" />
+            <input matInput type="password" placeholder="******" formControlName="senhaConfirmacao"/>
+            <mat-error *ngIf="cadastroForm.get('senhaConfirmacao')?.hasError('required')">
+              A confirmação de senha é obrigatória
+            </mat-error>
+            <mat-error *ngIf="!validarSenhas()">
+              As senhas não correspondem
+            </mat-error>
           </mat-form-field>
-          <button id="cadbutton" mat-raised-button class="full-width" (click)="onSubmit()">
+
+          <button id="cadbutton" mat-raised-button class="full-width" [disabled]="!cadastroForm.valid || !validarSenhas()">
             Criar conta
           </button>
         </form>
