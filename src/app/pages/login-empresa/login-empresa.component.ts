@@ -4,8 +4,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { IUser } from '../../interfaces/IUser';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-loginEmpresa',
@@ -15,9 +18,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule, 
-    CommonModule,
-    ReactiveFormsModule
+    MatIconModule,
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './login-empresa.component.html',
   styleUrls: ['./login-empresa.component.css']
@@ -43,30 +46,8 @@ export class LoginEmpresaComponent {
   cep?: string = '';
   imageprofile?: string = '';
 
-  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { 
-    this.cadastroForm = this.fb.group({
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email,
-          Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/),
-        ],
-      ],
-      senha: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(12),
-          Validators.pattern(/^(?=.*[A-Z])(?=.*\d).+$/), // Pelo menos uma letra maiúscula e um número
-        ],
-      ],
-      senhaConfirmacao: ['', [Validators.required]],
-    })
-  }
+  constructor(private userService: UserService, private router: Router) { }
 
-  cadastroForm: FormGroup;
-  passwordHidden: boolean = true;
 
   onTabChange(event: any): void {
     const selectedTabIndex = event.index;
@@ -80,9 +61,18 @@ export class LoginEmpresaComponent {
     }
   }
 
-  togglePasswordVisibility(inputElement: HTMLInputElement): void {
-    inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
-  }
+  onLogin(): void {
+    if (!this.loginEmail || !this.loginPassword) {
+      console.error('Preencha todos os campos de login.');
+      return;
+    }
+    console.log('Logando com:', { email: this.loginEmail, password: this.loginPassword });
+
+    const user: IUser = {
+      email: this.loginEmail,
+      password: this.loginPassword,
+      typeuser: 'enterprise',
+    };
 
     this.userService.loginUser(user).subscribe(
       (response) => {
@@ -115,18 +105,17 @@ export class LoginEmpresaComponent {
         console.error('Erro ao logar usuário:', error);
       }
     );
-
-  validarSenhas(): boolean {
-    const senha = this.cadastroForm.get('senha')?.value;
-    const senhaConfirmacao = this.cadastroForm.get('senhaConfirmacao')?.value;
-    return senha === senhaConfirmacao;
   }
 
   onSubmit(): void {
-    if (this.cadastroForm.valid && this.validarSenhas()) {
-      alert('Cadastro realizado com sucesso!');
-    } else {
-      alert('Erro no formulário. Verifique os campos!');
+    if (!this.email || !this.password || !this.passwordConfirm) {
+      console.error('Preencha todos os campos de cadastro.');
+      return;
+    }
+
+    if (this.password !== this.passwordConfirm) {
+      console.error('As senhas não coincidem.');
+      return;
     }
 
     this.userService.getUserByEmail(this.email).subscribe(
@@ -170,5 +159,3 @@ export class LoginEmpresaComponent {
   }
 }
 
-  }
-}

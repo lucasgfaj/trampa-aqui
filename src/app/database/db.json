@@ -40,6 +40,38 @@
       "linguages": [],
       "experiencies": "Não informado",
       "imageprofile": ""
+    },
+    {
+      "id": "4008",
+      "name": "",
+      "email": "lucasgontardz@hotmail.com",
+      "password": "123",
+      "typeuser": "developer",
+      "createdAt": "2025-01-03T00:02:29.846Z",
+      "cpf": "",
+      "contact": "",
+      "street": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Não informado",
+      "imageprofile": "",
+      "experience": "junior",
+      "language": ""
+    },
+    {
+      "id": "7996",
+      "name": "",
+      "email": "lucasgontarzfajardo09@hotmail.com",
+      "password": "123",
+      "typeuser": "developer",
+      "createdAt": "2025-01-03T00:02:52.307Z",
+      "cpf": "",
+      "contact": "",
+      "street": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Não informado",
+      "imageprofile": ""
     }
   ],
   "jobs": [
@@ -112,6 +144,20 @@
       "selectCandidate": [],
       "userId": "164e",
       "status": "excluida"
+    },
+    {
+      "id": "1457",
+      "nameJob": "Desenvolvedor Jr.",
+      "salary": "1000",
+      "typeEnterprise": "Médio porte",
+      "typeJob": "Híbrido",
+      "typeContract": "Estágio",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "JavaScript",
+      "createdAt": "2025-01-03T00:05:13.919Z",
+      "selectCandidate": [],
+      "userId": "ce55",
+      "status": "aberta"
     }
   ]
 }
