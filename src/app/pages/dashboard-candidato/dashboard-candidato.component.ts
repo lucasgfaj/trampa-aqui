@@ -11,6 +11,7 @@ import { JobApiComponent } from '../job-api/job-api.component';
 import { CommonModule } from '@angular/common';
 import { IUser } from '../../interfaces/IUser';
 import { UserService } from '../../services/user.service';
+import { MinhasVagasComponent } from '../minhas-vagas/minhas-vagas.component';
 
 
 @Component({
@@ -25,7 +26,8 @@ import { UserService } from '../../services/user.service';
     ReactiveFormsModule,
     MatSelectModule,
     JobApiComponent,
-    CommonModule
+    CommonModule,
+    MinhasVagasComponent,
   ],
   templateUrl: './dashboard-candidato.component.html',
   styleUrls: ['./dashboard-candidato.component.css'],

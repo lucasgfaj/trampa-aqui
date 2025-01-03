@@ -85,6 +85,7 @@ export class LoginCandidatoComponent {
           if (loggedUser.id && loggedUser.typeuser) {
             // Salvar o ID do usuário no localStorage
             localStorage.setItem('userId', loggedUser.id);
+            localStorage.setItem('userType', loggedUser.typeuser);
   
             // Verificar o tipo de usuário
             if (loggedUser.typeuser === 'developer') {
