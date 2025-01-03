@@ -28,6 +28,7 @@ import { CommonModule } from '@angular/common';
 export class LoginEmpresaComponent {
   loginempresa: string = "Login como empresa";
   isCadastro: boolean = false;
+  passwordHidden: boolean = true;
 
   // Campos de Login
   loginEmail: string = '';
@@ -47,6 +48,10 @@ export class LoginEmpresaComponent {
   imageprofile?: string = '';
 
   constructor(private userService: UserService, private router: Router) { }
+
+  togglePasswordVisibility(inputElement: HTMLInputElement): void {
+    inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
+  }
 
 
   onTabChange(event: any): void {
@@ -110,6 +115,20 @@ export class LoginEmpresaComponent {
   onSubmit(): void {
     if (!this.email || !this.password || !this.passwordConfirm) {
       console.error('Preencha todos os campos de cadastro.');
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailPattern.test(this.email)) {
+      console.error('O email informado não é válido.');
+      return;
+    }
+
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{12,}$/;
+    if (!passwordPattern.test(this.password)) {
+      console.error(
+      'A senha deve ter pelo menos 12 caracteres, incluindo uma letra maiúscula e um número.'
+      );
       return;
     }
 

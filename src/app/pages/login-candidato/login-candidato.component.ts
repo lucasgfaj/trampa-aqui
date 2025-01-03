@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ExperienceLevel, IUser, ProgrammingLanguages } from '../../interfaces/IUser';
 import { RedirectCommand, Router } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-candidato',
@@ -20,7 +21,8 @@ import { RedirectCommand, Router } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './login-candidato.component.html',
   styleUrls: ['./login-candidato.component.css']
@@ -28,6 +30,7 @@ import { RedirectCommand, Router } from '@angular/router';
 export class LoginCandidatoComponent {
   logincandidato: string = 'Login como candidato';
   isCadastro: boolean = false;
+  passwordHidden: boolean = true;
 
   // Campos de Login
   loginEmail: string = '';
@@ -49,7 +52,13 @@ export class LoginCandidatoComponent {
   experiencies?: ExperienceLevel = ExperienceLevel.Null;
   imageprofile?: string = '';
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {
+    
+   }
+
+   togglePasswordVisibility(inputElement: HTMLInputElement): void {
+    inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
+  }
 
   onTabChange(event: any): void {
     const selectedTabIndex = event.index;
@@ -114,6 +123,20 @@ export class LoginCandidatoComponent {
       console.error('Preencha todos os campos de cadastro.');
       return;
     }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailPattern.test(this.email)) {
+      console.error('O email informado não é válido.');
+      return;
+    }
+
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{12,}$/;
+    if (!passwordPattern.test(this.password)) {
+      console.error(
+      'A senha deve ter pelo menos 12 caracteres, incluindo uma letra maiúscula e um número.'
+      );
+      return;
+  }
   
     if (this.password !== this.passwordConfirm) {
       console.error('As senhas não coincidem.');
@@ -163,4 +186,5 @@ export class LoginCandidatoComponent {
       }
     );
   }
+
 }
