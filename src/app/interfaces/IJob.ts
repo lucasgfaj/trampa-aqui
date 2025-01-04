@@ -85,6 +85,7 @@ export enum LanguageRequired {
     objectivec = 'Objective-C'
 }
 
-export enum CandidateSelect {
-    candidate = 'Não informado',
-}
+export interface CandidateSelect {
+    userId: string;
+    userName: string;
+  }

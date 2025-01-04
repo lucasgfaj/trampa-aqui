@@ -1,1 +1,9 @@
-<p>minhas-vagas works!</p>
+<section class="container">
+    <h2>Vagas Candidatadas</h2>
+    <div *ngFor="let job of jobs" class="container-div">
+      <div class="title-jobs">
+        <h5>{{ job.nameJob }}</h5>
+        <button (click)="withdrawApplication(job.id)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </div>
+  </section>

@@ -28,7 +28,7 @@
     },
     {
       "id": "4e0c",
-      "name": "",
+      "name": "Lucas",
       "email": "lucasgontardo@hotmail.com",
       "password": "123",
       "typeuser": "developer",
@@ -39,7 +39,9 @@
       "cep": "",
       "linguages": [],
       "experiencies": "Não informado",
-      "imageprofile": ""
+      "imageprofile": "",
+      "experience": "Não informado",
+      "language": ""
     },
     {
       "id": "4008",
@@ -113,9 +115,9 @@
       "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
       "requiredLanguage": "Go",
       "createdAt": "2025-01-02T22:24:41.915Z",
-      "selectCandidate": [],
+      "selectCandidate": "4e0c",
       "userId": "ce55",
-      "status": "aberta"
+      "status": "finalizada"
     },
     {
       "id": "9d33",
