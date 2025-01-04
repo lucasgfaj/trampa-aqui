@@ -122,7 +122,9 @@
         <div class="form-field">
           <label for="contratacao" class="select">Candidato Escolhido</label>
           <select [(ngModel)]="job.selectCandidate" name="selectCandidate">
-            <option *ngFor="let candidate of job.selectCandidate" [value]="candidate">{{ candidate }}</option>
+            <option *ngFor="let candidate of job.selectCandidate" [value]="candidate.userId">
+              {{ candidate.userName }} ({{ candidate.userId }})
+            </option>
           </select>
         </div>
       </div>

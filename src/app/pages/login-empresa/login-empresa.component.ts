@@ -83,13 +83,12 @@ export class LoginEmpresaComponent {
           if (loggedUser.id && loggedUser.typeuser) {
             // Salvar o ID do usuário no localStorage
             localStorage.setItem('userId', loggedUser.id);
+            localStorage.setItem('userType', loggedUser.typeuser);
   
             // Verificar o tipo de usuário
             if (loggedUser.typeuser === 'enterprise') {
-              console.log('Usuário é um empresa.');
               this.router.navigate(['/dashboard-empresa']);
             } else if (loggedUser.typeuser === 'developer') {
-              console.log('Usuário é um desenvolvedor.');
               this.router.navigate(['/dashboard-candidato']);
             } else {
               console.error('Tipo de usuário não reconhecido:', loggedUser.typeuser);

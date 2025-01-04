@@ -85,13 +85,13 @@ export class LoginCandidatoComponent {
           if (loggedUser.id && loggedUser.typeuser) {
             // Salvar o ID do usuário no localStorage
             localStorage.setItem('userId', loggedUser.id);
+            localStorage.setItem('userType', loggedUser.typeuser);
+            
   
             // Verificar o tipo de usuário
             if (loggedUser.typeuser === 'developer') {
-              console.log('Usuário é um desenvolvedor.');
               this.router.navigate(['/dashboard-candidato']);
             } else if (loggedUser.typeuser === 'enterprise') {
-              console.log('Usuário é uma empresa.');
               this.router.navigate(['/dashboard-empresa']);
             } else {
               console.error('Tipo de usuário não reconhecido:', loggedUser.typeuser);

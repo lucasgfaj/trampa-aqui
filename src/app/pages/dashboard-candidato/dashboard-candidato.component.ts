@@ -11,6 +11,7 @@ import { JobApiComponent } from '../job-api/job-api.component';
 import { CommonModule } from '@angular/common';
 import { IUser } from '../../interfaces/IUser';
 import { UserService } from '../../services/user.service';
+import { MinhasVagasComponent } from '../minhas-vagas/minhas-vagas.component';
 
 
 @Component({
@@ -25,7 +26,8 @@ import { UserService } from '../../services/user.service';
     ReactiveFormsModule,
     MatSelectModule,
     JobApiComponent,
-    CommonModule
+    CommonModule,
+    MinhasVagasComponent,
   ],
   templateUrl: './dashboard-candidato.component.html',
   styleUrls: ['./dashboard-candidato.component.css'],
@@ -48,7 +50,14 @@ export class DashboardCandidatoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void  {
+
+  if (!localStorage.getItem('dashboardReloaded')) {
+    localStorage.setItem('dashboardReloaded', 'true');
+    window.location.reload(); // Força o recarregamento apenas uma vez
+  } else {
+    localStorage.removeItem('dashboardReloaded'); // Remove o flag após o recarregamento
+  }
     const userId = localStorage.getItem('userId');
     if (userId) {
       this.userService.getUserById(userId).subscribe(
