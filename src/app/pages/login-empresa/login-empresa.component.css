@@ -8,7 +8,8 @@
 .tela-login {
   background-color: #34495E;
   overflow: hidden;
-  min-height: 90vh;
+  min-height: 100vh;
+  height: 100vh;
   box-sizing: border-box;
 }
 
