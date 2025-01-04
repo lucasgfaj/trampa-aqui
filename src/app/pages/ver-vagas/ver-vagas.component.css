@@ -16,7 +16,7 @@
 .dev-job {
   text-align: center;
   position: absolute;
-  top: 25%; /* Melhor centralização vertical */
+  top: 22%; /* Melhor centralização vertical */
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -78,7 +78,7 @@ mat-icon {
       }
 
   .dev-job {
-    top: 25%;
+    top: 28%;
     width: 80%;
   }
 

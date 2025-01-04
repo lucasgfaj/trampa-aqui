@@ -75,10 +75,14 @@ nav a {
 
   .sidenav-container {
     width: 100vw;
+    position: relative;
+    height: 100;
   }
 
   .sidenav {
     width: 15.625rem; 
+    z-index: 2000;
+    height: 100vh;
   }
 }
 

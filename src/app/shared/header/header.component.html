@@ -1,6 +1,6 @@
 <!-- Container SideNav-->
 <mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
-  <!-- Sidenav -->
+
   <mat-sidenav #sidenav mode="over" class="sidenav">
     <mat-nav-list>
       <a mat-list-item routerLink="/home">HOME</a>
@@ -15,10 +15,16 @@
         <button mat-menu-item routerLink="/login-candidato">USUÁRIO</button>
         <button mat-menu-item routerLink="/login-empresa">EMPRESA</button>
       </mat-menu>
+
+      <!-- Exibe 'DASHBOARD' apenas se o usuário estiver logado e for do tipo correspondente -->
+      <a *ngIf="isLoggedIn && userType === 'enterprise'" mat-list-item routerLink="/dashboard-empresa">DASHBOARD</a>
+      <a *ngIf="isLoggedIn && userType === 'developer'" mat-list-item routerLink="/dashboard-candidato">DASHBOARD</a>
+
+      <!-- Exibe 'LOGOUT' somente se o usuário estiver logado -->
+      <a *ngIf="isLoggedIn" mat-list-item (click)="logout()">LOGOUT</a>
     </mat-nav-list>
   </mat-sidenav>
 
-  <!-- Toolbar -->
   <mat-toolbar color="primary">
     <div class="toolbar-content">
       <!-- Ícone de menu hambúrguer para abrir o sidenav -->
@@ -40,9 +46,9 @@
         <a *ngIf="!isLoggedIn" mat-button routerLink="/sou-empresa">SOU EMPRESA</a>
         
         <!-- Botão de Dashboard, visível somente se o usuário estiver logado e for do tipo correspondente -->
-        <a *ngIf="isLoggedIn && userType === 'enterprise'" mat-button routerLink="/dashboard-empresa">DASHBOARD</a>
-        <a *ngIf="isLoggedIn && userType === 'developer'" mat-button routerLink="/dashboard-candidato">DASHBOARD</a>
-      
+        <a *ngIf="isLoggedIn && userType === 'enterprise'" mat-button routerLink="/dashboard-empresa">DASHBOARD EMPRESA</a>
+        <a *ngIf="isLoggedIn && userType === 'developer'" mat-button routerLink="/dashboard-candidato">DASHBOARD CANDIDATO</a>
+
         <!-- Menu de Login/Cadastro -->
         <a *ngIf="!isLoggedIn" mat-button [matMenuTriggerFor]="menuCadastro" class="submenu">LOGIN</a>
         <mat-menu #menuCadastro="matMenu">

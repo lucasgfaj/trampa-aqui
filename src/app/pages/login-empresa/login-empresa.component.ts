@@ -47,6 +47,9 @@ export class LoginEmpresaComponent {
   cep?: string = '';
   imageprofile?: string = '';
 
+   // Variável para controlar se o formulário está em processamento
+  isProcessing: boolean = false;
+
   constructor(private userService: UserService, private router: Router) { }
 
   togglePasswordVisibility(inputElement: HTMLInputElement): void {
@@ -112,6 +115,11 @@ export class LoginEmpresaComponent {
   }
 
   onSubmit(): void {
+    if (this.isProcessing) {
+      console.log('Processamento em andamento, tente novamente mais tarde.');
+      return; // Impede novas tentativas enquanto o processo de cadastro está em andamento
+    }
+
     if (!this.email || !this.password || !this.passwordConfirm) {
       console.error('Preencha todos os campos de cadastro.');
       return;
@@ -125,9 +133,7 @@ export class LoginEmpresaComponent {
 
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{12,}$/;
     if (!passwordPattern.test(this.password)) {
-      console.error(
-      'A senha deve ter pelo menos 12 caracteres, incluindo uma letra maiúscula e um número.'
-      );
+      console.error('A senha deve ter pelo menos 12 caracteres, incluindo uma letra maiúscula e um número.');
       return;
     }
 
@@ -136,12 +142,23 @@ export class LoginEmpresaComponent {
       return;
     }
 
+    // Definir flag de processamento
+    this.isProcessing = true;
+
+    if (this.password !== this.passwordConfirm) {
+      console.error('As senhas não coincidem.');
+      return;
+    }
+
+    // Verificar se o email já está cadastrado
     this.userService.getUserByEmail(this.email).subscribe(
       (response) => {
         if (response.length > 0) {
           console.error('Email já está cadastrado.');
-          return //Impede a criação do usuário
+          this.isProcessing = false; // Liberar o processo
+          return; // Impede a criação do usuário
         }
+
         // Criar o novo usuário se o email não estiver cadastrado
         const newUser: IUser = {
           name: this.name,
@@ -156,24 +173,29 @@ export class LoginEmpresaComponent {
           imageprofile: this.imageprofile
         };
 
-        this.userService.createUser(newUser).subscribe(
-          (response) => {
-            console.log('Usuário cadastrado com sucesso:', response);
-            this.email = '';
-            this.password = '';
-            this.passwordConfirm = '';
-            //Recarrega a página
-            window.location.reload();
-          },
-          (error) => {
-            console.error('Erro ao cadastrar usuário:', error);
-          }
-        )
-      },
-      (error) => {
-        console.error('Erro ao verificar email:', error);
-      }
-    );
-  }
+      // Criar o usuário
+      this.userService.createUser(newUser).subscribe(
+        (createResponse) => {
+          console.log('Usuário cadastrado com sucesso:', createResponse);
+          // Limpar os campos após cadastro
+          this.email = '';
+          this.password = '';
+          this.passwordConfirm = '';
+          // Redirecionar ou recarregar a página
+          this.isProcessing = false; // Liberar o processo
+          window.location.reload();
+        },
+        (createError) => {
+          console.error('Erro ao cadastrar usuário:', createError);
+          this.isProcessing = false; // Liberar o processo em caso de erro
+        }
+      );
+    },
+    (error) => {
+      console.error('Erro ao verificar email:', error);
+      this.isProcessing = false; // Liberar o processo em caso de erro
+    }
+  );
+}
 }
 
