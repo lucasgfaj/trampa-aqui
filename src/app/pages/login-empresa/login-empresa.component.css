@@ -41,8 +41,8 @@ h2 {
 
 .full-width {
   width: 100%;
-  margin-top: .625rem;
   margin-bottom: .625rem;
+  margin-top: .625rem;
 }
 
 .forgot-password {
@@ -73,9 +73,8 @@ h2 {
 /* Media Queries */
 @media screen and (max-width: 480px) {
   .login-container {
-    width: 85%;
+    width: 80%;
     padding: 15px;
-    margin: 3rem auto;
   }
 
   h2 {
@@ -90,6 +89,7 @@ h2 {
   .forgot-password, .footer-link {
     font-size: 0.85rem;
   }
+
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -115,7 +115,6 @@ h2 {
   .tela-login{
     min-height: 82vh;
   }
-  
 }
 
 /* Ajustes para telas muito pequenas */
@@ -137,19 +136,5 @@ h2 {
 
   h2 {
     font-size: 2rem;
-  }
-}
-
-/* Ajustes específicos para os tabs */
-::ng-deep .mat-tab-label {
-  min-width: 100px !important;
-  padding: 0 15px !important;
-}
-
-@media screen and (max-width: 480px) {
-  ::ng-deep .mat-tab-label {
-    min-width: 80px !important;
-    padding: 0 10px !important;
-    font-size: 14px;
   }
 }
