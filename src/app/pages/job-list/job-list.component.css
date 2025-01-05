@@ -1,0 +1,235 @@
+  .jobs {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .job-card {
+    background: #f1f1f136;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* border: 1px solid #dddddd6b; */
+    padding: 0.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 .125rem .3125rem rgba(0, 0, 0, 0.048);
+  }
+  
+  .company-logo {
+    margin-left: 1.25rem;
+    margin-right: 3.125rem;
+    width: 6.25rem;
+    height: 6.25rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .job-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  
+  .job-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 0;
+  }
+  
+  .job-details h2 {
+    font-size: 1.12rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .job-details p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tags-span {
+    font-size: 0.8rem;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.1rem 0.75rem;
+    border-radius: 1.25rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    margin-right: .3125rem;
+    border: 1px solid rgb(235, 230, 230);
+    color: rgb(107, 102, 102);
+  }
+  
+  .apply-button {
+    background-color: #3040ff;
+    color: white;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: .375rem;
+  }
+  
+  .apply-button:hover {
+    background-color: #323fce;
+  }
+  
+  .filter-card-control {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .filter-card {
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Largura 100% do contêiner pai */
+    max-width: 62.5rem; /* Limite máximo de largura, ajustável */
+    min-width: 12.5rem; /* Largura mínima, ajustável */
+    padding: .625rem;
+  }
+  
+  .filter-card button {
+    all: unset; /* Remove todos os estilos padrão */
+    background: none; /* Garante que não há fundo */
+    border: none; /* Remove as bordas */
+    padding: 0; /* Remove o espaçamento interno */
+    margin: 0; /* Remove qualquer margem */
+    font: inherit; /* Herda a fonte do elemento pai */
+    text-align: inherit; /* Herda o alinhamento do texto */
+    cursor: pointer; /* Define o cursor para pointer */
+  }
+  
+  .iconify {
+    font-size: 2rem;
+    color: #2A3F54;
+    margin-right: 1.2rem;
+  }
+  
+  .filter-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .filter-card-header h4 {
+    font-weight: 400;
+    color: #2A3F54;
+    margin-left: 1.5rem;
+  }
+  
+  .filter-card-body {
+    display: block;
+  }
+  
+  
+  
+  /* Responsividade */
+/* Responsividade */
+@media (max-width: 1200px) {
+    /* Reduzindo padding em telas médias */
+    .job-section {
+      padding: 1rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .jobs {
+      order: 2; /* Mantém as vagas acima */
+      width: 100%; /* Garante que ocupe 100% da largura */
+    }
+  
+    .job-card {
+      width: 100%; /* Garante que cada card ocupe toda a largura */
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Ajustes para tablets */
+    .job-section {
+      padding: 1rem;
+    }
+  
+    .job-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      align-items: center;
+      width: 100%; /* Garante que o card ocupe toda a largura */
+    }
+  
+    .company-logo {
+      display: none;
+    }
+  
+    .job-info {
+      gap: 0.8rem;
+    }
+  
+    .tags {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    /* Ajustes para dispositivos móveis */
+    .job-section {
+      gap: 1.5rem;
+      width: 100%; /* Garante que a seção ocupe 100% da largura */
+    }
+  
+    .jobs {
+      gap: 1.5rem;
+      width: 100%; /* Garante que a lista de vagas ocupe 100% da largura */
+    }
+  
+    .job-card {
+      text-align: center;
+      padding: 1rem;
+      width: 100%; /* Garante que cada card ocupe toda a largura */
+    }
+  
+    .job-details {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .tags {
+      align-items: center;
+      gap: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 364px) {
+    .job-details {
+      line-height: 1;
+    }
+  
+    .filter-card {
+      max-width: 100%; /* Garante que o card de filtro ocupe 100% */
+    }
+  }
+  
+    /* Fim Responsividade */
+
+mat-paginator {
+    justify-content: center;
+    display: flex;
+}

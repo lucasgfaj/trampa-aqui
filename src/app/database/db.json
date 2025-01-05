@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "id": "b8b7",
+      "name": "Lucas Fajardo",
+      "email": "lucasgontardo@hotmail.com",
+      "password": "rtje2qv0ZIJ6",
+      "typeuser": "developer",
+      "createdAt": "2025-01-04T22:26:08.610Z",
+      "cpf": "",
+      "contact": "",
+      "street": "",
+      "cep": "",
+      "linguages": [],
+      "experiencies": "Não informado",
+      "imageprofile": "",
+      "experience": "Não informado",
+      "language": ""
+    },
+    {
+      "id": "c086",
+      "name": "Trampa Aqui",
+      "email": "trampa@aqui.com",
+      "password": "rtje2qv0ZIJ6",
+      "typeuser": "enterprise",
+      "createdAt": "2025-01-04T22:40:56.815Z",
+      "cnpj": "",
+      "contact": "",
+      "street": "",
+      "cep": "",
+      "imageprofile": ""
+    }
+  ],
+  "jobs": [
+    {
+      "id": "a6e9",
+      "nameJob": "Desenvolvedor Júnior - Trampa Aqui",
+      "salary": "6000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Remoto",
+      "typeContract": "Júnior",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "TypeScript",
+      "createdAt": "2025-01-04T22:41:57.290Z",
+      "selectCandidate": "b8b7",
+      "userId": "c086",
+      "status": "finalizada"
+    },
+    {
+      "id": "9305",
+      "nameJob": "Desenvolvedor Pleno - Trampa Aqui",
+      "salary": "10000",
+      "typeEnterprise": "Pequeno porte",
+      "typeJob": "Remoto",
+      "typeContract": "Pleno",
+      "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
+      "requiredLanguage": "TypeScript",
+      "createdAt": "2025-01-04T22:43:04.853Z",
+      "selectCandidate": [
+        {
+          "userId": "b8b7",
+          "userName": "Lucas Fajardo"
+        }
+      ],
+      "userId": "c086",
+      "status": "aberta"
+    },
+    {
+      "id": "b4d2",
+      "nameJob": "Desenvolvedor Sênior - Trampa Aqui",
+      "salary": "20000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Remoto",
+      "typeContract": "Sênior",
+      "dispobilityLocation": "Não informado",
+      "requiredLanguage": "TypeScript",
+      "createdAt": "2025-01-04T22:45:03.710Z",
+      "selectCandidate": [],
+      "userId": "c086",
+      "status": "aberta"
+    }
+  ]
+}

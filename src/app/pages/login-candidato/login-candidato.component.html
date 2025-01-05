@@ -1,0 +1,73 @@
+<div class="tela-login">
+  <h2>
+    {{ logincandidato.substring(0, logincandidato.lastIndexOf(' ')) }}
+    <span [class.highlight]="isCadastro">Candidato</span>
+  </h2>
+  <div class="login-container">
+    <mat-tab-group (selectedTabChange)="onTabChange($event)">
+      <mat-tab label="Log In">
+        <form class="login-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" placeholder="Seu e-mail" [(ngModel)]="loginEmail" [ngModelOptions]="{standalone: true}" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" placeholder="******" #passwordInput [(ngModel)]="loginPassword"  [ngModelOptions]="{standalone: true}"/>
+            <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="passwordHidden = !passwordHidden; togglePasswordVisibility(passwordInput)">
+              <mat-icon>{{ passwordHidden ? 'visibility' : 'visibility_off' }}</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <div class="forgot-password">
+            <a href="#">Esqueceu sua senha?</a>
+          </div>
+
+          <button id="loginbutton" mat-raised-button class="full-width" (click)="onLogin()">
+            Login
+          </button>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Cadastre-se">
+        <form (ngSubmit)="onSubmit()" class="cadastro-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>*E-mail</mat-label>
+            <input matInput type="email" placeholder="Seu e-mail" name="email" [(ngModel)]="email" required email pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" [ngModelOptions]="{standalone: true}" />
+            <mat-error>
+              E-mail inválido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>*Senha</mat-label>
+            <input matInput type="password" placeholder="******" name="password" #passwordInput="ngModel" [(ngModel)]="password" required minlength="12" pattern="^(?=.*[A-Z])(?=.*\d).+$" [ngModelOptions]="{standalone: true}" />
+            <mat-error>
+              A senha deve conter pelo menos 12 caracteres, sendo uma letra e um número
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>*Confirmação de Senha</mat-label>
+            <input matInput type="password" placeholder="******" name="passwordConfirm" [(ngModel)]="passwordConfirm" [ngModelOptions]="{standalone: true}" />
+            <mat-error>
+              A confirmação de senha é obrigatória
+            </mat-error>
+            <mat-error>
+              As senhas não correspondem
+            </mat-error>
+          </mat-form-field>
+
+          <button id="cadbutton" mat-raised-button class="full-width" (click)="onSubmit()">
+            Criar conta
+          </button>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div class="footer-link">
+      <a href="/login-empresa">Eu sou uma empresa</a>
+    </div>
+  </div>
+</div>

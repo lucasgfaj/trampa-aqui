@@ -3,7 +3,7 @@
   align-items: center;
   width: 100%;
   margin: 0;
-  justify-content: space-between;  /* Adiciona um espaçamento entre os itens (ícone de hambúrguer e logo) */
+  justify-content: space-between;  
 }
 
 .logo {
@@ -32,16 +32,16 @@ nav a {
   color: #32B796 !important;
 }
 
-.cadastrar {
+.submenu {
   padding: 8px;
-  color: white !important;
+  color: #f7f6f6 !important;
   border: 1px solid #2B3C4E;
   background-color: #34495E;
   border-radius: 0px;
   transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
 }
 
-.cadastrar:hover {
+.submenu:hover {
   background-color: white !important;
   color: black !important;
   border-radius: 12px;
@@ -54,32 +54,38 @@ nav a {
 @media (max-width: 768px) {
   .toolbar-content {
     display: grid;
-    grid-template-columns: auto 1fr auto; /* Menu no lado esquerdo, logo no centro e um espaçador à direita */
-    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    grid-template-columns: auto 1fr auto; 
+    align-items: center;
   }
 
   .menu-button {
     display: block;
-    grid-column: 1; /* Posiciona o botão de menu na primeira coluna */
+    grid-column: 1; 
   }
 
   .logo {
     display: block;
-    grid-column: 2; /* Posiciona o logo na segunda coluna (centro) */
-    justify-self: center; /* Centraliza o logo dentro da coluna */
+    grid-column: 2;
+    justify-self: center; 
   }
 
   .desktop-nav {
-    display: none; /* Esconde a navegação em dispositivos móveis */
+    display: none;
   }
 
   .sidenav-container {
-    height: 100vh;
     width: 100vw;
+    position: relative;
+    height: 100;
   }
 
   .sidenav {
-    width: 15.625rem; /* Define o tamanho do sidenav */
+    width: 15.625rem; 
+    z-index: 2000;
+    height: 100vh;
   }
 }
 
+.mat-menu-item {
+  padding: 10px 20px;
+}

@@ -1,0 +1,106 @@
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: .625rem auto;
+  padding: .625rem;
+  border-radius: .5rem;
+  box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.card-img img {
+  width: 6.25rem;
+  height: auto;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin: 0.625rem 0;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card button {
+  text-align: center;
+  width: 12.5rem;
+  padding: 0.625rem 1.25rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.625rem;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+/* Media queries para tornar o layout responsivo */
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr; /* Ajusta o layout para 1 coluna em telas menores */
+    padding: 1rem;
+  }
+
+  .card-img img {
+    width: 5rem;
+  }
+
+  .card h2 {
+    font-size: 1.125rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    white-space: normal; /* Permite que o texto ocupe mais de uma linha se necessário */
+  }
+
+  .card button {
+    width: auto; /* Ajusta a largura do botão para se adaptar ao conteúdo */
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    max-width: 100%; /* Utiliza toda a largura disponível na tela */
+    padding: 1.25rem;
+  }
+
+  .card-img img {
+    width: 4.5rem;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+  }
+
+  .card button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}

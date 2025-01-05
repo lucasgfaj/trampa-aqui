@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 1rem;
+}
+
+.container {
+  max-width: 56.25rem; /* 900px */
+  width: 95%;
+  margin: 3.125rem auto;
+  padding: 1.875rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+.container-div {
+  max-width: 56.25rem; /* 900px */
+  width: 100%;
+  padding: 1.375rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.25rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  color: #5E6366;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-field {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.625rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #5E6366;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 0.3125rem rgba(63, 81, 181, 0.5);
+}
+
+.upload-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.upload-section p {
+  margin-right: 0.625rem;
+  font-weight: bold;
+}
+
+.button, .cancel-button {
+  width: 9.375rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+}
+
+.cancel-button {
+  background-color: white;
+  color: #3f51b5;
+  border: 0.0625rem solid #3f51b5;
+}
+
+.button:hover {
+  background-color: #2c3e9d;
+}
+
+.cancel-button:hover {
+  background-color: #f5f5f5;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1.875rem;
+  gap: 1rem;
+}
+
+#password {
+  width: 50%;
+}
+
+.foto {
+  text-align: center;
+  padding-top: 3.125rem;
+}
+
+/* Vagas API */
+.api-link-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.api-link {
+  background-color: #F1F1F180;
+  padding: 1.1875rem;
+  margin: 1.25rem;
+  width: 62rem;
+}
+/* Vagas API */
+
+.title-jobs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-jobs h2 {
+  font-weight: 400;
+  color: #2A3F54;
+  margin-left: 1.5rem;
+}
+
+.title-jobs button {
+  all: unset; /* Remove todos os estilos padrão */
+  background: none; /* Garante que não há fundo */
+  border: none; /* Remove as bordas */
+  padding: 0; /* Remove o espaçamento interno */
+  margin: 0; /* Remove qualquer margem */
+  font: inherit; /* Herda a fonte do elemento pai */
+  text-align: inherit; /* Herda o alinhamento do texto */
+  cursor: pointer; /* Define o cursor para pointer */
+}
+
+.iconify {
+  font-size: 2rem;
+  color: #2A3F54;
+  margin-right: 1.2rem;
+}
+
+
+/* Media Queries */
+
+/* Tablets e telas médias */
+@media screen and (max-width: 48rem) { /* 768px */
+  .container {
+    width: 100%;
+    margin: 1.5rem auto;
+    padding: 1.25rem;
+  }
+
+  .form-row {
+    gap: 1rem;
+  }
+
+  .button, .cancel-button {
+    width: 8.125rem;
+  }
+}
+
+/* Smartphones e telas pequenas */
+@media screen and (max-width: 30rem) { /* 480px */
+  .container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-field {
+    margin-right: 0;
+  }
+
+  #password {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  input, select {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .button, .cancel-button {
+    width: 100%;
+    max-width: 15rem;
+  }
+
+  .foto {
+    padding-top: 2rem;
+  }
+}
+
+/* Telas muito pequenas */
+@media screen and (max-width: 20rem) { /* 320px */
+  .container {
+    padding: 0.75rem;
+    margin: 0.5rem auto;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .button, .cancel-button {
+    height: 2.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Telas grandes */
+@media screen and (min-width: 75rem) { /* 1200px */
+  .container {
+    margin: 4rem auto;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  input, select {
+    padding: 0.75rem;
+  }
+}
+
+/* Ajuste para altura pequena */
+@media screen and (max-height: 37.5rem) { /* 600px */
+  .container {
+    margin: 1rem auto;
+  }
+
+  .foto {
+    padding-top: 1.5rem;
+  }
+
+  .button-container {
+    margin-top: 1.25rem;
+  }
+}

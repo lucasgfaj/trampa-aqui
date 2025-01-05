@@ -1,0 +1,76 @@
+<header>
+  <div class="div-img">
+    <img src="https://res.cloudinary.com/duposs86e/image/upload/v1734805892/Background_2_uhwpi3.png"
+      alt="Imagem de fundo">
+  </div>
+  <div class="dev-job">
+    <div class="dev-job-title">
+      <p>Vagas para Programadores e Desenvolvedores</p>
+    </div>
+    <div class="dev-job-subtitle">
+      <p>Domina alguma linguagem de programação (Front-End, Back-End, Mobile ou Full Stack)?</p>
+      <p>Quer ser contratado como freelancer (PJ), estagiário ou CLT?</p>
+      <p>Então você está no lugar certo!</p>
+    </div>
+    <div class="search-bar">
+      <span>
+        <label for="search"><mat-icon>search</mat-icon></label>
+        <input id="search" type="text" placeholder="Todas as skills" />
+      </span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="api-link-section">
+    <div class="api-link">
+      <app-job-api></app-job-api>
+    </div>
+  </section>
+
+  <div class="filter-card-control">
+    <div class="filter-card">
+      <div class="filter-card-header">
+        <h4>Filtrar</h4>
+        <button (click)="toggleVisibility()"><span class="iconify" data-icon="codicon:filter-filled"
+            data-inline="false"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="job-section">
+
+    <div *ngIf="secFilter" class="filter-card-body">
+      <div class="filters">
+        <!-- Filtros -->
+        <div class="filter-category">
+          <h3>Filtrar: <button>TODAS</button></h3>
+        </div>
+
+        <div class="filter-category">
+          <h3>Tipo de contrato</h3>
+          <button>CLT</button>
+          <button>PJ</button>
+          <button>Estágio</button>
+        </div>
+
+        <div class="filter-category">
+          <h3>Nível de experiência</h3>
+          <button>Júnior</button>
+          <button>Pleno</button>
+          <button>Sênior</button>
+        </div>
+
+        <div class="filter-category">
+          <h3>Tamanho da empresa</h3>
+          <button>Startup</button>
+          <button>Grande empresa</button>
+          <button>Pequena/média empresa</button>
+        </div>
+      </div>
+    </div>
+    <app-job-list></app-job-list>
+  </section>
+
+
+</main>
