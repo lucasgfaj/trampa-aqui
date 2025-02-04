@@ -1,4 +1,4 @@
-import { AuthGuard } from '../guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { Route } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { VerVagasComponent } from './pages/ver-vagas/ver-vagas.component';
