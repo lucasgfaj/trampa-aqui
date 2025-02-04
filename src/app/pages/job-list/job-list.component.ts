@@ -55,6 +55,12 @@ export class JobListComponent implements OnInit, OnChanges {
 
     const startIndex = this.currentPage * this.pageSize;
     this.pagedJobs = filteredJobs.slice(startIndex, startIndex + this.pageSize);
+
+    // Atualiza o paginator após modificar as vagas paginadas
+    if (this.paginator) {
+      this.paginator.pageIndex = this.currentPage; // Atualiza a página atual
+      this.paginator.length = filteredJobs.length;  // Atualiza o total de itens
+    }
   }
 
   onPageChange(event: PageEvent): void {
@@ -168,7 +174,6 @@ export class JobListComponent implements OnInit, OnChanges {
       });
       console.error('Erro ao buscar o usuário:', error);
     });
-  };
-  
-  
+  }
 }
+  
