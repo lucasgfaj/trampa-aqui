@@ -1,3 +1,4 @@
+import { AuthGuard } from '../guards/auth.guard';
 import { Route } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { VerVagasComponent } from './pages/ver-vagas/ver-vagas.component';
@@ -15,8 +16,8 @@ export const routes: Route[] = [
   { path: 'sou-empresa', component: SouEmpresaComponent },
   { path: 'login-candidato', component: LoginCandidatoComponent },
   { path: 'login-empresa', component: LoginEmpresaComponent },
-  { path: 'dashboard-empresa', component: DashboardEmpresaComponent },
-  { path: 'dashboard-candidato', component: DashboardCandidatoComponent },
+  { path: 'dashboard-empresa', component: DashboardEmpresaComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard-candidato', component: DashboardCandidatoComponent, canActivate: [AuthGuard] },
   { path: 'minhas-vagas', component: MinhasVagasComponent },
   { path: '**', redirectTo: '/home' }, // Página padrão de redirecionamento para "home-page"
 ];
