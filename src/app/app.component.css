@@ -3,9 +3,9 @@
     align-items: center;
     width: 100%;
     margin: 0;
-    justify-content: space-between;  
+    justify-content: space-between;
   }
-  
+
   .logo {
     height: 2.625rem;
     margin-right: 1rem;
@@ -13,25 +13,25 @@
     border: 2px solid transparent;
     border-radius: 0px;
   }
-  
+
   .spacer {
     flex: 1;
   }
-  
+
   nav {
     padding: 8px 0px 8px 0px;
   }
-  
+
   nav a {
     color: #34495E;
     font-weight: bold;
     margin-right: 16px;
   }
-  
+
   .vagas {
     color: #32B796 !important;
   }
-  
+
   .submenu {
     padding: 8px;
     color: #f7f6f6 !important;
@@ -40,53 +40,52 @@
     border-radius: 0px;
     transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
   }
-  
+
   .submenu:hover {
     background-color: white !important;
     color: black !important;
     border-radius: 12px;
   }
-  
+
   .menu-button {
     display: none;
   }
-  
+
   @media (max-width: 768px) {
     .toolbar-content {
       display: grid;
-      grid-template-columns: auto 1fr auto; 
+      grid-template-columns: auto 1fr auto;
       align-items: center;
     }
-  
+
     .menu-button {
       display: block;
-      grid-column: 1; 
+      grid-column: 1;
     }
-  
+
     .logo {
       display: block;
       grid-column: 2;
-      justify-self: center; 
+      justify-self: center;
     }
-  
+
     .desktop-nav {
       display: none;
     }
-  
+
     .sidenav-container {
       width: 100vw;
       position: relative;
       height: 100;
     }
-  
+
     .sidenav {
-      width: 15.625rem; 
+      width: 15.625rem;
       z-index: 2000;
       height: 100vh;
     }
   }
-  
+
   .mat-menu-item {
     padding: 10px 20px;
   }
-  

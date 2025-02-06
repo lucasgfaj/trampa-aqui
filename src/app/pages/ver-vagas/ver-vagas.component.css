@@ -123,7 +123,8 @@ mat-icon {
   }
 
   .dev-job {
-      top: 25%;
+    position: fixed;
+      top: 18%;
       width: 80%;
   }
 

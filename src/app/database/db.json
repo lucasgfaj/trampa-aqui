@@ -56,14 +56,9 @@
       "dispobilityLocation": "Aceita candidatos dispostos a se mudar",
       "requiredLanguage": "TypeScript",
       "createdAt": "2025-01-04T22:43:04.853Z",
-      "selectCandidate": [
-        {
-          "userId": "b8b7",
-          "userName": "Lucas Fajardo"
-        }
-      ],
+      "selectCandidate": "b8b7",
       "userId": "c086",
-      "status": "aberta"
+      "status": "finalizada"
     },
     {
       "id": "b4d2",
@@ -75,7 +70,50 @@
       "dispobilityLocation": "Não informado",
       "requiredLanguage": "TypeScript",
       "createdAt": "2025-01-04T22:45:03.710Z",
-      "selectCandidate": [],
+      "selectCandidate": [
+        {
+          "userId": "b8b7",
+          "userName": "Lucas Fajardo"
+        }
+      ],
+      "userId": "c086",
+      "status": "aberta"
+    },
+    {
+      "id": "b3d2",
+      "nameJob": "Desenvolvedor Junior - Trampa Aqui",
+      "salary": "20000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Remoto",
+      "typeContract": "Sênior",
+      "dispobilityLocation": "Não informado",
+      "requiredLanguage": "TypeScript",
+      "createdAt": "2025-01-04T22:45:03.710Z",
+      "selectCandidate": [
+        {
+          "userId": "b8b7",
+          "userName": "Lucas Fajardo"
+        }
+      ],
+      "userId": "c086",
+      "status": "aberta"
+    },
+       {
+      "id": "b3d2",
+      "nameJob": "Desenvolvedor Junior - Trampa Aqui",
+      "salary": "20000",
+      "typeEnterprise": "Start-Up",
+      "typeJob": "Remoto",
+      "typeContract": "Sênior",
+      "dispobilityLocation": "Não informado",
+      "requiredLanguage": "TypeScript",
+      "createdAt": "2025-01-04T22:45:03.710Z",
+      "selectCandidate": [
+        {
+          "userId": "b8b7",
+          "userName": "Lucas Fajardo"
+        }
+      ],
       "userId": "c086",
       "status": "aberta"
     }

@@ -15,8 +15,8 @@
     <div class="search-bar">
       <span>
         <label for="search"><mat-icon>search</mat-icon></label>
-        <input id="search" type="text" placeholder="Todas as skills" />
-      </span>
+        <input id="search" type="text" placeholder="Pesquisar vagas" [(ngModel)]="searchTerm" (input)="onSearch()" />
+      </span>      
     </div>
   </div>
 </header>
@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-    <app-job-list></app-job-list>
+    <app-job-list [searchTerm]="searchTerm"></app-job-list>
   </section>
 
 

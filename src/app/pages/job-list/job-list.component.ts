@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, SimpleChanges, OnChanges} from '@angular/core';
 import { IJob } from '../../interfaces/IJob';
 import { JobService } from '../../services/job.service';
 import { UserService } from '../../services/user.service'; 
@@ -15,11 +15,12 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrl: './job-list.component.css'
 })
 
-export class JobListComponent implements OnInit {
+export class JobListComponent implements OnInit, OnChanges {
   openJobs: IJob[] = [];
   pagedJobs: IJob[] = [];
   pageSize: number = 4;
   currentPage: number = 0;
+  @Input() searchTerm: string = ''; 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -29,11 +30,17 @@ export class JobListComponent implements OnInit {
     this.loadJobs();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['searchTerm'] && !changes['searchTerm'].firstChange) {
+      this.updatePagedJobs(); // Chama a atualização quando searchTerm mudar
+    }
+  }
+
   loadJobs(): void {
     this.jobService.getJobs().subscribe({
       next: (jobs) => {
         this.openJobs = jobs.filter((job) => job.status === 'aberta');
-        this.updatePagedJobs();
+        this.updatePagedJobs(); // Inicializa o filtro de vagas
       },
       error: (err) => {
         console.error('Erro ao carregar vagas:', err);
@@ -42,14 +49,24 @@ export class JobListComponent implements OnInit {
   }
 
   updatePagedJobs(): void {
+    const filteredJobs = this.openJobs.filter(job => 
+      job.nameJob.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filtragem por nome da vaga
+    );
+
     const startIndex = this.currentPage * this.pageSize;
-    this.pagedJobs = this.openJobs.slice(startIndex, startIndex + this.pageSize);
+    this.pagedJobs = filteredJobs.slice(startIndex, startIndex + this.pageSize);
+
+    // Atualiza o paginator após modificar as vagas paginadas
+    if (this.paginator) {
+      this.paginator.pageIndex = this.currentPage; // Atualiza a página atual
+      this.paginator.length = filteredJobs.length;  // Atualiza o total de itens
+    }
   }
 
   onPageChange(event: PageEvent): void {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.updatePagedJobs();
+    this.updatePagedJobs(); // Atualiza a página ao mudar a página no paginator
   }
   
   public applyToJob(jobId: string): void {
@@ -157,7 +174,6 @@ export class JobListComponent implements OnInit {
       });
       console.error('Erro ao buscar o usuário:', error);
     });
-  };
-  
-  
+  }
 }
+  
