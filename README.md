@@ -2,7 +2,7 @@
 
 Este projeto tem como objetivo implementar progressivamente e de forma didática uma aplicação web inspirada em um site de vagas para desenvolvedores que tem como objetivo: (ex: vagas para desenvolvedores, cadastrar vagas, login e cadastro), sendo o diferencial você filtra as categorias da vagas.
 
-O frontend da aplicação foi desenvolvido com HTML, CSS e JavaScript utilizando Framework Angular e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
+O frontend da aplicação foi desenvolvido com HTML, CSS e TypeScript, Material Angular utilizando Framework Angular e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
 
 ## Endereço de Deploy - GitHub Pages
 
