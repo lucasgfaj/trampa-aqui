@@ -7,7 +7,7 @@
       "password": "rtje2qv0ZIJ6",
       "typeuser": "developer",
       "createdAt": "2025-01-04T22:26:08.610Z",
-      "cpf": "",
+      "cpf": "11048818942",
       "contact": "",
       "street": "",
       "cep": "",
@@ -98,7 +98,7 @@
       "userId": "c086",
       "status": "aberta"
     },
-       {
+    {
       "id": "b3d2",
       "nameJob": "Desenvolvedor Junior - Trampa Aqui",
       "salary": "20000",
@@ -116,6 +116,42 @@
       ],
       "userId": "c086",
       "status": "aberta"
-    }
+    },
+    {   "id": "b3d2",
+    "nameJob": "Desenvolvedor Junior - Trampa Aqui",
+    "salary": "20000",
+    "typeEnterprise": "Start-Up",
+    "typeJob": "Remoto",
+    "typeContract": "Sênior",
+    "dispobilityLocation": "Não informado",
+    "requiredLanguage": "TypeScript",
+    "createdAt": "2025-01-04T22:45:03.710Z",
+    "selectCandidate": [
+      {
+        "userId": "b8b7",
+        "userName": "Lucas Fajardo"
+      }
+    ],
+    "userId": "c086",
+    "status": "aberta"
+  },
+  {   "id": "b3d2",
+    "nameJob": "Desenvolvedor Junior - Trampa Aqui",
+    "salary": "20000",
+    "typeEnterprise": "Start-Up",
+    "typeJob": "Remoto",
+    "typeContract": "Sênior",
+    "dispobilityLocation": "Não informado",
+    "requiredLanguage": "TypeScript",
+    "createdAt": "2025-01-04T22:45:03.710Z",
+    "selectCandidate": [
+      {
+        "userId": "b8b7",
+        "userName": "Lucas Fajardo"
+      }
+    ],
+    "userId": "c086",
+    "status": "aberta"
+  }
   ]
 }
