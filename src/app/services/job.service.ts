@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { IJob } from '../interfaces/IJob';
 
 @Injectable({
@@ -11,8 +11,12 @@ export class JobService {
 
   constructor(private http: HttpClient) {}
 
-  getJobs(): Observable<IJob[]> {
-    return this.http.get<IJob[]>(this.apiUrl);
+  // getJobs(): Observable<IJob[]> {
+  //   return this.http.get<IJob[]>(this.apiUrl);
+  // }
+
+  getJobs(): Promise<IJob[]> {
+    return firstValueFrom(this.http.get<IJob[]>(this.apiUrl));
   }
 
   createJob(job: IJob): Observable<IJob> {
@@ -26,7 +30,7 @@ export class JobService {
   deleteJob(jobId: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${jobId}`);
   }
-  
+
   updateJob(job: IJob): Observable<IJob> {
     return this.http.put<IJob>(`${this.apiUrl}/${job.id}`, job);
   }

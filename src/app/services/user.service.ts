@@ -1,7 +1,7 @@
 import { IUser } from './../interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,14 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
 
-  getUser(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(this.apiUrl);
+  // getUser(): Observable<IUser[]> {
+  //   return this.http.get<IUser[]>(this.apiUrl);
+  // }
+
+  getUser(): Promise<IUser[]> {
+    return firstValueFrom(this.http.get<IUser[]>(this.apiUrl));
   }
+
 
   updateUser(user: IUser) : Observable<IUser>{
     return this.http.put<IUser>(`${this.apiUrl}/${user.id}`, user);
@@ -28,7 +33,7 @@ export class UserService {
   loginUser(user: IUser): Observable<IUser[]> {
     return this.http.get<IUser[]>(`${this.apiUrl}?email=${user.email}&password=${user.password}`);
   }
-  
+
   getUserById(userId: string): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/${userId}`);
   }
