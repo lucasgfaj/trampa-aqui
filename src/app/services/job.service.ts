@@ -11,13 +11,13 @@ export class JobService {
 
   constructor(private http: HttpClient) {}
 
-  // getJobs(): Observable<IJob[]> {
-  //   return this.http.get<IJob[]>(this.apiUrl);
-  // }
+   getJobs(): Observable<IJob[]> {
+     return this.http.get<IJob[]>(this.apiUrl);
+   }
 
-  getJobs(): Promise<IJob[]> {
-    return firstValueFrom(this.http.get<IJob[]>(this.apiUrl));
-  }
+  // getJobs(): Promise<IJob[]> {
+  //   return firstValueFrom(this.http.get<IJob[]>(this.apiUrl));
+  // }
 
   createJob(job: IJob): Observable<IJob> {
     return this.http.post<IJob>(this.apiUrl, job);
