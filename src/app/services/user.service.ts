@@ -13,15 +13,17 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
 
-  // getUser(): Observable<IUser[]> {
-  //   return this.http.get<IUser[]>(this.apiUrl);
+  //  getUser(): Observable<IUser[]> {
+  //    return this.http.get<IUser[]>(this.apiUrl);
+  //  }
+
+  // getUser(): Promise<IUser[]> {
+  //   return firstValueFrom(this.http.get<IUser[]>(this.apiUrl));
   // }
 
   getUser(): Promise<IUser[]> {
-    return firstValueFrom(this.http.get<IUser[]>(this.apiUrl));
-  }
-
-
+  return firstValueFrom(this.http.get<IUser[]>(this.apiUrl));
+}
   updateUser(user: IUser) : Observable<IUser>{
     return this.http.put<IUser>(`${this.apiUrl}/${user.id}`, user);
   }
@@ -42,4 +44,3 @@ export class UserService {
     return this.http.get<IUser[]>(`${this.apiUrl}?email=${email}`);
   }
 }
-
