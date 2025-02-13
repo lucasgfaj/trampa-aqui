@@ -44,4 +44,3 @@ export class UserService {
     return this.http.get<IUser[]>(`${this.apiUrl}?email=${email}`);
   }
 }
-
