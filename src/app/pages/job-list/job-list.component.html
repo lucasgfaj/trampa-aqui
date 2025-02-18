@@ -1,15 +1,15 @@
 <div class="jobs">
   <div *ngFor="let job of pagedJobs" class="job-card">
-    <img 
-      src="https://res.cloudinary.com/duposs86e/image/upload/v1731018683/hpcugjkjnvtbpzlzhx1q.jpg_ktaoll.png" 
-      alt="Company Logo" 
-      class="company-logo" 
+    <img
+      src="https://res.cloudinary.com/duposs86e/image/upload/v1731018683/hpcugjkjnvtbpzlzhx1q.jpg_ktaoll.png"
+      alt="Company Logo"
+      class="company-logo"
     />
     <div class="job-info">
       <h6>{{ job.nameJob }}</h6>
       <div class="job-details">
-        <p>{{ job.typeEnterprise }} | {{ job.typeJob }}</p>
-        <p>Salário: R$ {{ job.salary }} | {{ job.typeContract }}</p>
+        <p>{{ job.typeEnterprise}} | {{ job.typeJob }}</p>
+        <p>Salário: R$ {{ job.salary | currency: 'BRL'}} | {{ job.typeContract }}</p>
         <p>{{ job.dispobilityLocation }}</p>
       </div>
       <div class="tags">
